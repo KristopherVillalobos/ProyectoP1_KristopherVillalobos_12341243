@@ -19,6 +19,13 @@ public class Principal extends javax.swing.JFrame {
         ModifPlatos.setLocationRelativeTo(null);
         ModifEmpleados.pack();
         ModifEmpleados.setLocationRelativeTo(null);
+        ListarMesas.pack();
+        ListarMesas.setLocationRelativeTo(null);
+        ListaPlatos.pack();
+        ListaPlatos.setLocationRelativeTo(null);
+        ModifMesas.pack();
+        ModifMesas.setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -30,7 +37,15 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        VntPlatos = new javax.swing.JFrame();
+        ListaPlatos = new javax.swing.JFrame();
+        LabCate = new javax.swing.JLabel();
+        GrpTxtCate = new javax.swing.JComboBox<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        TblPlatos = new javax.swing.JTable();
+        LblNumPlt = new javax.swing.JLabel();
+        LblPltDisp = new javax.swing.JLabel();
+        LblNumCuantos = new javax.swing.JLabel();
+        LblPlatCuantos = new javax.swing.JLabel();
         ModifPlatos = new javax.swing.JFrame();
         IdPlatos = new javax.swing.JLabel();
         Nombre = new javax.swing.JLabel();
@@ -67,6 +82,38 @@ public class Principal extends javax.swing.JFrame {
         BtnSi1 = new javax.swing.JRadioButton();
         BtnElimCmb1 = new javax.swing.JButton();
         ListarMesas = new javax.swing.JFrame();
+        NbrMesa = new javax.swing.JLabel();
+        TxtNbrMesa = new javax.swing.JTextField();
+        EliOrdenMesa = new javax.swing.JToggleButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TblOrdn = new javax.swing.JTable();
+        CantPed = new javax.swing.JLabel();
+        TermiServ = new javax.swing.JLabel();
+        BtnTermiSi = new javax.swing.JRadioButton();
+        BtnTermiNo = new javax.swing.JRadioButton();
+        jLabel1 = new javax.swing.JLabel();
+        EliOrdenMesa1 = new javax.swing.JToggleButton();
+        GrpTermi = new javax.swing.ButtonGroup();
+        ModifMesas = new javax.swing.JFrame();
+        BtnBuscarMs1 = new javax.swing.JButton();
+        LblTitMs = new javax.swing.JLabel();
+        LblidMs = new javax.swing.JLabel();
+        LblOcpMs = new javax.swing.JLabel();
+        BtnMsNo = new javax.swing.JRadioButton();
+        BtnModifMs = new javax.swing.JButton();
+        LblCatMs = new javax.swing.JLabel();
+        LblNumMs = new javax.swing.JLabel();
+        BxCatMs = new javax.swing.JComboBox<>();
+        BtnMsSi = new javax.swing.JRadioButton();
+        BtnNbrPlatMs = new javax.swing.JLabel();
+        BtnElimMs = new javax.swing.JButton();
+        TxtNumMs = new javax.swing.JTextField();
+        BtnGdrMs = new javax.swing.JButton();
+        TxtidMs = new javax.swing.JTextField();
+        BxNmbrPlatMs = new javax.swing.JComboBox<>();
+        BtnBuscarMs2 = new javax.swing.JButton();
+        BtnBuscarMs3 = new javax.swing.JButton();
+        BtnBuscarMs4 = new javax.swing.JButton();
         NbrRst = new javax.swing.JLabel();
         MsjRst = new javax.swing.JLabel();
         BarradeTareas = new javax.swing.JMenuBar();
@@ -78,16 +125,99 @@ public class Principal extends javax.swing.JFrame {
         Modificar = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
-        javax.swing.GroupLayout VntPlatosLayout = new javax.swing.GroupLayout(VntPlatos.getContentPane());
-        VntPlatos.getContentPane().setLayout(VntPlatosLayout);
-        VntPlatosLayout.setHorizontalGroup(
-            VntPlatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        LabCate.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        LabCate.setText("Ingrese la Categoria :");
+
+        GrpTxtCate.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        GrpTxtCate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bebida", "Entrada", "Plato Fuerte", "Postre" }));
+
+        TblPlatos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        TblPlatos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Id Plato", "Nombre", "Precio", "Disponible"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(TblPlatos);
+
+        LblNumPlt.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        LblNumPlt.setText("Numero de Platos :");
+
+        LblPltDisp.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        LblPltDisp.setText("Platillos Disponibles :");
+
+        LblNumCuantos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        LblNumCuantos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LblNumCuantos.setText("0");
+        LblNumCuantos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        LblPlatCuantos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        LblPlatCuantos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LblPlatCuantos.setText("0");
+        LblPlatCuantos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout ListaPlatosLayout = new javax.swing.GroupLayout(ListaPlatos.getContentPane());
+        ListaPlatos.getContentPane().setLayout(ListaPlatosLayout);
+        ListaPlatosLayout.setHorizontalGroup(
+            ListaPlatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ListaPlatosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(ListaPlatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 888, Short.MAX_VALUE)
+                    .addGroup(ListaPlatosLayout.createSequentialGroup()
+                        .addGroup(ListaPlatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ListaPlatosLayout.createSequentialGroup()
+                                .addComponent(LabCate)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(GrpTxtCate, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(ListaPlatosLayout.createSequentialGroup()
+                                .addGroup(ListaPlatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(LblPltDisp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(LblNumPlt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(ListaPlatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(LblNumCuantos, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(LblPlatCuantos, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
-        VntPlatosLayout.setVerticalGroup(
-            VntPlatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        ListaPlatosLayout.setVerticalGroup(
+            ListaPlatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ListaPlatosLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addGroup(ListaPlatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(LabCate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(GrpTxtCate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(ListaPlatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LblNumPlt)
+                    .addComponent(LblNumCuantos))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ListaPlatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LblPltDisp)
+                    .addComponent(LblPlatCuantos))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         ModifPlatos.setTitle("Modificar Platos");
@@ -394,16 +524,348 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(28, 28, 28))
         );
 
+        ListarMesas.setTitle("Lista Mesas");
+        ListarMesas.setResizable(false);
+
+        NbrMesa.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        NbrMesa.setText("Ingrese el Numero de Mesa:");
+
+        TxtNbrMesa.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        TxtNbrMesa.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        EliOrdenMesa.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        EliOrdenMesa.setText("Buscar");
+
+        TblOrdn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        TblOrdn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        TblOrdn.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Ordenes", "Sillas Ocupadas", "Mesero Asignado", "Pedidos Especiales"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        TblOrdn.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(TblOrdn);
+
+        CantPed.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        CantPed.setText("Cantidad Total de Pedidos :");
+
+        TermiServ.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        TermiServ.setText("Termino el Servicio :");
+
+        GrpTermi.add(BtnTermiSi);
+        BtnTermiSi.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BtnTermiSi.setText("Si");
+        BtnTermiSi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnTermiSiActionPerformed(evt);
+            }
+        });
+
+        GrpTermi.add(BtnTermiNo);
+        BtnTermiNo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BtnTermiNo.setText("No");
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setText("0");
+
+        EliOrdenMesa1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        EliOrdenMesa1.setText("Eliminar");
+
         javax.swing.GroupLayout ListarMesasLayout = new javax.swing.GroupLayout(ListarMesas.getContentPane());
         ListarMesas.getContentPane().setLayout(ListarMesasLayout);
         ListarMesasLayout.setHorizontalGroup(
             ListarMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(ListarMesasLayout.createSequentialGroup()
+                .addGroup(ListarMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ListarMesasLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1))
+                    .addGroup(ListarMesasLayout.createSequentialGroup()
+                        .addGroup(ListarMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ListarMesasLayout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addGroup(ListarMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(CantPed, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                                    .addComponent(TermiServ, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(ListarMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(ListarMesasLayout.createSequentialGroup()
+                                        .addComponent(BtnTermiSi, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(BtnTermiNo, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(ListarMesasLayout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addComponent(NbrMesa)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(TxtNbrMesa, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(EliOrdenMesa)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(EliOrdenMesa1)))
+                        .addGap(0, 339, Short.MAX_VALUE)))
+                .addContainerGap())
         );
+
+        ListarMesasLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {EliOrdenMesa, EliOrdenMesa1});
+
         ListarMesasLayout.setVerticalGroup(
             ListarMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(ListarMesasLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(ListarMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(NbrMesa, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ListarMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(TxtNbrMesa)
+                        .addComponent(EliOrdenMesa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(EliOrdenMesa1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ListarMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CantPed)
+                    .addComponent(jLabel1))
+                .addGap(12, 12, 12)
+                .addGroup(ListarMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(ListarMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(BtnTermiSi, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(BtnTermiNo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(TermiServ, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
+
+        ListarMesasLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {EliOrdenMesa, EliOrdenMesa1, NbrMesa, TxtNbrMesa});
+
+        ModifMesas.setResizable(false);
+
+        BtnBuscarMs1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BtnBuscarMs1.setText("Buscar");
+        BtnBuscarMs1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BtnBuscarMs1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnBuscarMs1ActionPerformed(evt);
+            }
+        });
+
+        LblTitMs.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LblTitMs.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LblTitMs.setText("Modificar Mesas");
+
+        LblidMs.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        LblidMs.setText("Id Mesero");
+
+        LblOcpMs.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        LblOcpMs.setText("Ocupada");
+
+        GrpDispo.add(BtnMsNo);
+        BtnMsNo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BtnMsNo.setText("No");
+        BtnMsNo.setEnabled(false);
+
+        BtnModifMs.setText("Modificar Cambios");
+        BtnModifMs.setEnabled(false);
+        BtnModifMs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnModifMsActionPerformed(evt);
+            }
+        });
+
+        LblCatMs.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        LblCatMs.setText("Categoria");
+
+        LblNumMs.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        LblNumMs.setText("Numero de Mesa");
+
+        BxCatMs.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BxCatMs.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bebida", "Entrada", "Plato Fuerte", "Postre" }));
+        BxCatMs.setEnabled(false);
+        BxCatMs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BxCatMsActionPerformed(evt);
+            }
+        });
+
+        GrpDispo.add(BtnMsSi);
+        BtnMsSi.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BtnMsSi.setText("Si");
+        BtnMsSi.setEnabled(false);
+        BtnMsSi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnMsSiActionPerformed(evt);
+            }
+        });
+
+        BtnNbrPlatMs.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BtnNbrPlatMs.setText("Nombre");
+
+        BtnElimMs.setText("Eliminar Cambios");
+        BtnElimMs.setEnabled(false);
+        BtnElimMs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnElimMsActionPerformed(evt);
+            }
+        });
+
+        TxtNumMs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtNumMsActionPerformed(evt);
+            }
+        });
+
+        BtnGdrMs.setText("Guardar Cambios");
+        BtnGdrMs.setEnabled(false);
+
+        TxtidMs.setEnabled(false);
+        TxtidMs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtidMsActionPerformed(evt);
+            }
+        });
+
+        BtnBuscarMs2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BtnBuscarMs2.setText("Buscar");
+        BtnBuscarMs2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BtnBuscarMs2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnBuscarMs2ActionPerformed(evt);
+            }
+        });
+
+        BtnBuscarMs3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BtnBuscarMs3.setText("Buscar");
+        BtnBuscarMs3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BtnBuscarMs3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnBuscarMs3ActionPerformed(evt);
+            }
+        });
+
+        BtnBuscarMs4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BtnBuscarMs4.setText("Buscar");
+        BtnBuscarMs4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BtnBuscarMs4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnBuscarMs4ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout ModifMesasLayout = new javax.swing.GroupLayout(ModifMesas.getContentPane());
+        ModifMesas.getContentPane().setLayout(ModifMesasLayout);
+        ModifMesasLayout.setHorizontalGroup(
+            ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ModifMesasLayout.createSequentialGroup()
+                .addGroup(ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ModifMesasLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(LblTitMs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(ModifMesasLayout.createSequentialGroup()
+                        .addGroup(ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(ModifMesasLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(BtnNbrPlatMs, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(LblCatMs, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(LblidMs, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(BxCatMs, 0, 238, Short.MAX_VALUE)
+                                    .addComponent(BxNmbrPlatMs, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(TxtidMs)))
+                            .addGroup(ModifMesasLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(LblNumMs)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(TxtNumMs)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BtnBuscarMs1)
+                            .addComponent(BtnBuscarMs2)
+                            .addComponent(BtnBuscarMs3)
+                            .addComponent(BtnBuscarMs4))
+                        .addGap(10, 10, 10))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModifMesasLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BtnGdrMs, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(BtnModifMs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(BtnElimMs, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(20, 20, 20)))
+                .addContainerGap())
+            .addGroup(ModifMesasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(LblOcpMs, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BtnMsSi)
+                .addGap(18, 18, 18)
+                .addComponent(BtnMsNo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        ModifMesasLayout.setVerticalGroup(
+            ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ModifMesasLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(LblTitMs, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(LblNumMs, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
+                        .addComponent(TxtNumMs))
+                    .addGroup(ModifMesasLayout.createSequentialGroup()
+                        .addComponent(BtnBuscarMs1)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(TxtidMs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(LblidMs))
+                    .addComponent(BtnBuscarMs2))
+                .addGap(3, 3, 3)
+                .addGroup(ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BxCatMs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LblCatMs, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnBuscarMs3))
+                .addGap(7, 7, 7)
+                .addGroup(ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtnNbrPlatMs)
+                    .addComponent(BxNmbrPlatMs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnBuscarMs4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LblOcpMs)
+                    .addGroup(ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
+                        .addComponent(BtnMsSi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BtnMsNo)))
+                .addGap(21, 21, 21)
+                .addComponent(BtnGdrMs, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BtnModifMs, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BtnElimMs, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55))
+        );
+
+        ModifMesasLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {BtnNbrPlatMs, LblCatMs, LblOcpMs, LblidMs});
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Kazza");
@@ -427,7 +889,12 @@ public class Principal extends javax.swing.JFrame {
         BtnTrMenu.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
         BtnPlatos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        BtnPlatos.setText("Platos");
+        BtnPlatos.setText("Lista de Platos");
+        BtnPlatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnPlatosActionPerformed(evt);
+            }
+        });
         BtnTrMenu.add(BtnPlatos);
 
         BtnModif.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -474,6 +941,15 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem2.setText("Modificar Mesas");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
         BarradeTareas.add(jMenu1);
 
         setJMenuBar(BarradeTareas);
@@ -483,13 +959,13 @@ public class Principal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(69, 69, 69)
+                .addContainerGap(90, Short.MAX_VALUE)
                 .addComponent(MsjRst, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(70, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(84, 84, 84))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(149, 149, 149)
                 .addComponent(NbrRst, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(131, 131, 131))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -498,7 +974,7 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(NbrRst, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(MsjRst, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(122, Short.MAX_VALUE))
+                .addContainerGap(152, Short.MAX_VALUE))
         );
 
         pack();
@@ -545,8 +1021,60 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnBuscar1ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
+        ListarMesas.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void BtnTermiSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTermiSiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnTermiSiActionPerformed
+
+    private void BtnPlatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPlatosActionPerformed
+        ListaPlatos.setVisible(true);
+    }//GEN-LAST:event_BtnPlatosActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        ModifMesas.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void BtnBuscarMs1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarMs1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnBuscarMs1ActionPerformed
+
+    private void BtnMsSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMsSiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnMsSiActionPerformed
+
+    private void TxtNumMsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtNumMsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtNumMsActionPerformed
+
+    private void TxtidMsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtidMsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtidMsActionPerformed
+
+    private void BtnBuscarMs2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarMs2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnBuscarMs2ActionPerformed
+
+    private void BtnBuscarMs3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarMs3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnBuscarMs3ActionPerformed
+
+    private void BtnBuscarMs4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarMs4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnBuscarMs4ActionPerformed
+
+    private void BxCatMsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BxCatMsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BxCatMsActionPerformed
+
+    private void BtnModifMsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModifMsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnModifMsActionPerformed
+
+    private void BtnElimMsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnElimMsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnElimMsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -587,50 +1115,91 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuBar BarradeTareas;
     private javax.swing.JButton BtnBuscar;
     private javax.swing.JButton BtnBuscar1;
+    private javax.swing.JButton BtnBuscarMs1;
+    private javax.swing.JButton BtnBuscarMs2;
+    private javax.swing.JButton BtnBuscarMs3;
+    private javax.swing.JButton BtnBuscarMs4;
     private javax.swing.JRadioButton BtnDisponible;
     private javax.swing.JButton BtnElimCmb;
     private javax.swing.JButton BtnElimCmb1;
+    private javax.swing.JButton BtnElimMs;
+    private javax.swing.JButton BtnGdrMs;
     private javax.swing.JButton BtnGrdr;
     private javax.swing.JButton BtnGrdr1;
     private javax.swing.JMenuItem BtnModif;
     private javax.swing.JButton BtnModifCmb;
     private javax.swing.JButton BtnModifCmb1;
+    private javax.swing.JButton BtnModifMs;
+    private javax.swing.JRadioButton BtnMsNo;
+    private javax.swing.JRadioButton BtnMsSi;
+    private javax.swing.JLabel BtnNbrPlatMs;
     private javax.swing.JRadioButton BtnNo;
     private javax.swing.JRadioButton BtnNoDisponible;
     private javax.swing.JMenuItem BtnPlatos;
     private javax.swing.JRadioButton BtnSi1;
+    private javax.swing.JRadioButton BtnTermiNo;
+    private javax.swing.JRadioButton BtnTermiSi;
     private javax.swing.JMenu BtnTrArchivo;
     private javax.swing.JMenu BtnTrMenu;
+    private javax.swing.JComboBox<String> BxCatMs;
     private javax.swing.JComboBox<String> BxCategoria;
+    private javax.swing.JComboBox<String> BxNmbrPlatMs;
     private javax.swing.JComboBox<String> BxTarea;
+    private javax.swing.JLabel CantPed;
     private javax.swing.JLabel Categoria;
     private javax.swing.JLabel Disponible;
+    private javax.swing.JToggleButton EliOrdenMesa;
+    private javax.swing.JToggleButton EliOrdenMesa1;
     private javax.swing.JMenuItem Empleados;
     private javax.swing.ButtonGroup GrpDispo;
+    private javax.swing.ButtonGroup GrpTermi;
+    private javax.swing.JComboBox<String> GrpTxtCate;
     private javax.swing.JLabel IdEmpleados1;
     private javax.swing.JLabel IdPlatos;
+    private javax.swing.JLabel LabCate;
+    private javax.swing.JLabel LblCatMs;
+    private javax.swing.JLabel LblNumCuantos;
+    private javax.swing.JLabel LblNumMs;
+    private javax.swing.JLabel LblNumPlt;
+    private javax.swing.JLabel LblOcpMs;
+    private javax.swing.JLabel LblPlatCuantos;
+    private javax.swing.JLabel LblPltDisp;
+    private javax.swing.JLabel LblTitMs;
+    private javax.swing.JLabel LblidMs;
+    private javax.swing.JFrame ListaPlatos;
     private javax.swing.JFrame ListarMesas;
     private javax.swing.JFrame ModifEmpleados;
+    private javax.swing.JFrame ModifMesas;
     private javax.swing.JFrame ModifPlatos;
     private javax.swing.JMenuItem Modificar;
     private javax.swing.JLabel MsjRst;
+    private javax.swing.JLabel NbrMesa;
     private javax.swing.JLabel NbrRst;
     private javax.swing.JLabel Nombre;
     private javax.swing.JLabel Nombre1;
     private javax.swing.JLabel Precio;
     private javax.swing.JLabel Presente1;
     private javax.swing.JLabel Tarea;
+    private javax.swing.JTable TblOrdn;
+    private javax.swing.JTable TblPlatos;
+    private javax.swing.JLabel TermiServ;
     private javax.swing.JLabel Turno;
     private javax.swing.JTextField TxtId;
     private javax.swing.JTextField TxtId1;
+    private javax.swing.JTextField TxtNbrMesa;
     private javax.swing.JTextField TxtNombre;
     private javax.swing.JTextField TxtNombre1;
+    private javax.swing.JTextField TxtNumMs;
     private javax.swing.JTextField TxtPrecio;
     private javax.swing.JLabel TxtTitulo;
     private javax.swing.JLabel TxtTitulo1;
     private javax.swing.JTextField TxtTurno1;
-    private javax.swing.JFrame VntPlatos;
+    private javax.swing.JTextField TxtidMs;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }
