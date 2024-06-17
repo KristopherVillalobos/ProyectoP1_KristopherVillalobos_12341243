@@ -17,6 +17,8 @@ public class Principal extends javax.swing.JFrame {
         initComponents();
         ModifPlatos.pack();
         ModifPlatos.setLocationRelativeTo(null);
+        ModifEmpleados.pack();
+        ModifEmpleados.setLocationRelativeTo(null);
     }
 
     /**
@@ -47,6 +49,24 @@ public class Principal extends javax.swing.JFrame {
         BtnModifCmb = new javax.swing.JButton();
         BtnElimCmb = new javax.swing.JButton();
         GrpDispo = new javax.swing.ButtonGroup();
+        ModifEmpleados = new javax.swing.JFrame();
+        Nombre1 = new javax.swing.JLabel();
+        BtnNo = new javax.swing.JRadioButton();
+        Tarea = new javax.swing.JLabel();
+        BxTarea = new javax.swing.JComboBox<>();
+        Turno = new javax.swing.JLabel();
+        TxtId1 = new javax.swing.JTextField();
+        BtnGrdr1 = new javax.swing.JButton();
+        TxtNombre1 = new javax.swing.JTextField();
+        TxtTurno1 = new javax.swing.JTextField();
+        BtnBuscar1 = new javax.swing.JButton();
+        TxtTitulo1 = new javax.swing.JLabel();
+        Presente1 = new javax.swing.JLabel();
+        BtnModifCmb1 = new javax.swing.JButton();
+        IdEmpleados1 = new javax.swing.JLabel();
+        BtnSi1 = new javax.swing.JRadioButton();
+        BtnElimCmb1 = new javax.swing.JButton();
+        ListarMesas = new javax.swing.JFrame();
         NbrRst = new javax.swing.JLabel();
         MsjRst = new javax.swing.JLabel();
         BarradeTareas = new javax.swing.JMenuBar();
@@ -56,6 +76,8 @@ public class Principal extends javax.swing.JFrame {
         BtnTrArchivo = new javax.swing.JMenu();
         Empleados = new javax.swing.JMenuItem();
         Modificar = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         javax.swing.GroupLayout VntPlatosLayout = new javax.swing.GroupLayout(VntPlatos.getContentPane());
         VntPlatos.getContentPane().setLayout(VntPlatosLayout);
@@ -210,6 +232,179 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
+        Nombre1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Nombre1.setText("Nombre ");
+
+        GrpDispo.add(BtnNo);
+        BtnNo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BtnNo.setText("No");
+        BtnNo.setEnabled(false);
+
+        Tarea.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Tarea.setText("Tarea");
+
+        BxTarea.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BxTarea.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gerente", "Mesero", "Cocinero", "Catador", "Recepcionista", "Limpiador" }));
+        BxTarea.setEnabled(false);
+
+        Turno.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Turno.setText("Turno");
+
+        TxtId1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtId1ActionPerformed(evt);
+            }
+        });
+
+        BtnGrdr1.setText("Guardar Cambios");
+        BtnGrdr1.setEnabled(false);
+
+        TxtNombre1.setEnabled(false);
+        TxtNombre1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtNombre1ActionPerformed(evt);
+            }
+        });
+
+        TxtTurno1.setEnabled(false);
+        TxtTurno1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtTurno1ActionPerformed(evt);
+            }
+        });
+
+        BtnBuscar1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BtnBuscar1.setText("Buscar");
+        BtnBuscar1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BtnBuscar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnBuscar1ActionPerformed(evt);
+            }
+        });
+
+        TxtTitulo1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        TxtTitulo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TxtTitulo1.setText("Modificar Empleados");
+
+        Presente1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Presente1.setText("Presente");
+
+        BtnModifCmb1.setText("Modificar Cambios");
+        BtnModifCmb1.setEnabled(false);
+
+        IdEmpleados1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        IdEmpleados1.setText("Id Empleado");
+
+        GrpDispo.add(BtnSi1);
+        BtnSi1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BtnSi1.setText("Si");
+        BtnSi1.setEnabled(false);
+        BtnSi1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSi1ActionPerformed(evt);
+            }
+        });
+
+        BtnElimCmb1.setText("Eliminar Cambios");
+        BtnElimCmb1.setEnabled(false);
+
+        javax.swing.GroupLayout ModifEmpleadosLayout = new javax.swing.GroupLayout(ModifEmpleados.getContentPane());
+        ModifEmpleados.getContentPane().setLayout(ModifEmpleadosLayout);
+        ModifEmpleadosLayout.setHorizontalGroup(
+            ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ModifEmpleadosLayout.createSequentialGroup()
+                .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModifEmpleadosLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(BtnGrdr1, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(ModifEmpleadosLayout.createSequentialGroup()
+                                .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Presente1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Nombre1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Tarea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Turno, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(ModifEmpleadosLayout.createSequentialGroup()
+                                        .addComponent(BtnSi1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(BtnNo))
+                                    .addComponent(BxTarea, 0, 290, Short.MAX_VALUE)
+                                    .addComponent(TxtNombre1)
+                                    .addComponent(TxtTurno1))))
+                        .addGap(10, 10, 10))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModifEmpleadosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TxtTitulo1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModifEmpleadosLayout.createSequentialGroup()
+                                .addGap(0, 6, Short.MAX_VALUE)
+                                .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModifEmpleadosLayout.createSequentialGroup()
+                                        .addComponent(IdEmpleados1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(TxtId1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(BtnBuscar1)
+                                        .addGap(67, 67, 67))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModifEmpleadosLayout.createSequentialGroup()
+                                        .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(BtnModifCmb1, javax.swing.GroupLayout.DEFAULT_SIZE, 357, Short.MAX_VALUE)
+                                            .addComponent(BtnElimCmb1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGap(10, 10, 10)))))))
+                .addContainerGap())
+        );
+        ModifEmpleadosLayout.setVerticalGroup(
+            ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ModifEmpleadosLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(TxtTitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(IdEmpleados1, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
+                        .addComponent(TxtId1))
+                    .addGroup(ModifEmpleadosLayout.createSequentialGroup()
+                        .addComponent(BtnBuscar1)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Nombre1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(TxtNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Tarea, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BxTarea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Turno, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TxtTurno1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
+                    .addComponent(Presente1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BtnSi1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BtnNo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BtnGrdr1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BtnModifCmb1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BtnElimCmb1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
+        );
+
+        javax.swing.GroupLayout ListarMesasLayout = new javax.swing.GroupLayout(ListarMesas.getContentPane());
+        ListarMesas.getContentPane().setLayout(ListarMesasLayout);
+        ListarMesasLayout.setHorizontalGroup(
+            ListarMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        ListarMesasLayout.setVerticalGroup(
+            ListarMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Kazza");
         setBackground(new java.awt.Color(0, 255, 255));
@@ -224,7 +419,7 @@ public class Principal extends javax.swing.JFrame {
         MsjRst.setText("L'autentico sapore italiano");
 
         BarradeTareas.setBackground(new java.awt.Color(51, 51, 51));
-        BarradeTareas.setForeground(new java.awt.Color(204, 255, 255));
+        BarradeTareas.setForeground(new java.awt.Color(0, 0, 0));
 
         BtnTrMenu.setBackground(new java.awt.Color(255, 255, 255));
         BtnTrMenu.setForeground(new java.awt.Color(0, 0, 0));
@@ -266,6 +461,21 @@ public class Principal extends javax.swing.JFrame {
 
         BarradeTareas.add(BtnTrArchivo);
 
+        jMenu1.setText("Mesas");
+        jMenu1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jMenu1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem1.setText("Listar Mesas");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        BarradeTareas.add(jMenu1);
+
         setJMenuBar(BarradeTareas);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -299,7 +509,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnModifActionPerformed
 
     private void ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarActionPerformed
-        // TODO add your handling code here:
+        ModifEmpleados.setVisible(true);
     }//GEN-LAST:event_ModificarActionPerformed
 
     private void TxtPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtPrecioActionPerformed
@@ -313,6 +523,30 @@ public class Principal extends javax.swing.JFrame {
     private void BtnDisponibleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDisponibleActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnDisponibleActionPerformed
+
+    private void TxtNombre1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtNombre1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtNombre1ActionPerformed
+
+    private void TxtTurno1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtTurno1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtTurno1ActionPerformed
+
+    private void BtnSi1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSi1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnSi1ActionPerformed
+
+    private void TxtId1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtId1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtId1ActionPerformed
+
+    private void BtnBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnBuscar1ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -352,31 +586,51 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar BarradeTareas;
     private javax.swing.JButton BtnBuscar;
+    private javax.swing.JButton BtnBuscar1;
     private javax.swing.JRadioButton BtnDisponible;
     private javax.swing.JButton BtnElimCmb;
+    private javax.swing.JButton BtnElimCmb1;
     private javax.swing.JButton BtnGrdr;
+    private javax.swing.JButton BtnGrdr1;
     private javax.swing.JMenuItem BtnModif;
     private javax.swing.JButton BtnModifCmb;
+    private javax.swing.JButton BtnModifCmb1;
+    private javax.swing.JRadioButton BtnNo;
     private javax.swing.JRadioButton BtnNoDisponible;
     private javax.swing.JMenuItem BtnPlatos;
+    private javax.swing.JRadioButton BtnSi1;
     private javax.swing.JMenu BtnTrArchivo;
     private javax.swing.JMenu BtnTrMenu;
     private javax.swing.JComboBox<String> BxCategoria;
+    private javax.swing.JComboBox<String> BxTarea;
     private javax.swing.JLabel Categoria;
     private javax.swing.JLabel Disponible;
     private javax.swing.JMenuItem Empleados;
     private javax.swing.ButtonGroup GrpDispo;
+    private javax.swing.JLabel IdEmpleados1;
     private javax.swing.JLabel IdPlatos;
+    private javax.swing.JFrame ListarMesas;
+    private javax.swing.JFrame ModifEmpleados;
     private javax.swing.JFrame ModifPlatos;
     private javax.swing.JMenuItem Modificar;
     private javax.swing.JLabel MsjRst;
     private javax.swing.JLabel NbrRst;
     private javax.swing.JLabel Nombre;
+    private javax.swing.JLabel Nombre1;
     private javax.swing.JLabel Precio;
+    private javax.swing.JLabel Presente1;
+    private javax.swing.JLabel Tarea;
+    private javax.swing.JLabel Turno;
     private javax.swing.JTextField TxtId;
+    private javax.swing.JTextField TxtId1;
     private javax.swing.JTextField TxtNombre;
+    private javax.swing.JTextField TxtNombre1;
     private javax.swing.JTextField TxtPrecio;
     private javax.swing.JLabel TxtTitulo;
+    private javax.swing.JLabel TxtTitulo1;
+    private javax.swing.JTextField TxtTurno1;
     private javax.swing.JFrame VntPlatos;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuItem jMenuItem1;
     // End of variables declaration//GEN-END:variables
 }

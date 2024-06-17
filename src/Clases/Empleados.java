@@ -13,14 +13,16 @@ public class Empleados {
     private String Nombre;
     private String Tarea;
     private String Turno;
+    private boolean marco;
 
     public Empleados() {
     }
 
-    public Empleados(String Nombre, String Tarea, String Turno) {
+    public Empleados(String Nombre, String Tarea, String Turno, boolean marco) {
         this.Nombre = Nombre;
         this.Tarea = Tarea;
         this.Turno = Turno;
+        this.marco = marco;
     }
 
     public String getNombre() {
@@ -46,5 +48,14 @@ public class Empleados {
     public void setTurno(String Turno) {
         this.Turno = Turno;
     }
+
+    public boolean isMarco() {
+        return marco;
+    }
+
+    public void setMarco(boolean marco) {
+        this.marco = marco;
+    }
+
     
 }
