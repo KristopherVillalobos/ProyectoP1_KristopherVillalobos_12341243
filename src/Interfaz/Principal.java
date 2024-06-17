@@ -27,6 +27,8 @@ public class Principal extends javax.swing.JFrame {
         ModifMesas.setLocationRelativeTo(null);
         FrmNuestraHistoria.pack();
         FrmNuestraHistoria.setLocationRelativeTo(null);
+        ListadoEmpleados.pack();
+        ListadoEmpleados.setLocationRelativeTo(null);
         
     }
 
@@ -65,24 +67,6 @@ public class Principal extends javax.swing.JFrame {
         TxtTitulo = new javax.swing.JLabel();
         BtnModifCmb = new javax.swing.JButton();
         BtnElimCmb = new javax.swing.JButton();
-        GrpDispo = new javax.swing.ButtonGroup();
-        ModifEmpleados = new javax.swing.JFrame();
-        Nombre1 = new javax.swing.JLabel();
-        BtnNo = new javax.swing.JRadioButton();
-        Tarea = new javax.swing.JLabel();
-        BxTarea = new javax.swing.JComboBox<>();
-        Turno = new javax.swing.JLabel();
-        TxtId1 = new javax.swing.JTextField();
-        BtnGrdr1 = new javax.swing.JButton();
-        TxtNombre1 = new javax.swing.JTextField();
-        TxtTurno1 = new javax.swing.JTextField();
-        BtnBuscar1 = new javax.swing.JButton();
-        TxtTitulo1 = new javax.swing.JLabel();
-        Presente1 = new javax.swing.JLabel();
-        BtnModifCmb1 = new javax.swing.JButton();
-        IdEmpleados1 = new javax.swing.JLabel();
-        BtnSi1 = new javax.swing.JRadioButton();
-        BtnElimCmb1 = new javax.swing.JButton();
         ListarMesas = new javax.swing.JFrame();
         NbrMesa = new javax.swing.JLabel();
         TxtNbrMesa = new javax.swing.JTextField();
@@ -95,7 +79,6 @@ public class Principal extends javax.swing.JFrame {
         BtnTermiNo = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
         EliOrdenMesa1 = new javax.swing.JToggleButton();
-        GrpTermi = new javax.swing.ButtonGroup();
         ModifMesas = new javax.swing.JFrame();
         BtnBuscarMs1 = new javax.swing.JButton();
         LblTitMs = new javax.swing.JLabel();
@@ -116,21 +99,49 @@ public class Principal extends javax.swing.JFrame {
         BtnBuscarMs2 = new javax.swing.JButton();
         BtnBuscarMs3 = new javax.swing.JButton();
         BtnBuscarMs4 = new javax.swing.JButton();
+        ListadoEmpleados = new javax.swing.JFrame();
+        ListaEmpleados = new javax.swing.JScrollPane();
+        TblEmpleados = new javax.swing.JTable();
+        LblEmpDisp = new javax.swing.JLabel();
+        LblEmpPres = new javax.swing.JLabel();
+        LblCantEmp = new javax.swing.JLabel();
+        LblCantEmpPres = new javax.swing.JLabel();
+        LblTar = new javax.swing.JLabel();
+        GrpBxTar = new javax.swing.JComboBox<>();
+        ModifEmpleados = new javax.swing.JFrame();
+        Nombre1 = new javax.swing.JLabel();
+        BtnNo = new javax.swing.JRadioButton();
+        Tarea = new javax.swing.JLabel();
+        BxTarea = new javax.swing.JComboBox<>();
+        Turno = new javax.swing.JLabel();
+        TxtId1 = new javax.swing.JTextField();
+        BtnGrdr1 = new javax.swing.JButton();
+        TxtNombre1 = new javax.swing.JTextField();
+        TxtTurno1 = new javax.swing.JTextField();
+        BtnBuscar1 = new javax.swing.JButton();
+        TxtTitulo1 = new javax.swing.JLabel();
+        Presente1 = new javax.swing.JLabel();
+        BtnModifCmb1 = new javax.swing.JButton();
+        IdEmpleados1 = new javax.swing.JLabel();
+        BtnSi1 = new javax.swing.JRadioButton();
+        BtnElimCmb1 = new javax.swing.JButton();
         FrmNuestraHistoria = new javax.swing.JFrame();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        LblHIstoria = new javax.swing.JLabel();
+        TxtHistoria = new javax.swing.JTextField();
+        GrpDispo = new javax.swing.ButtonGroup();
+        GrpTermi = new javax.swing.ButtonGroup();
         NbrRst = new javax.swing.JLabel();
         MsjRst = new javax.swing.JLabel();
         BarradeTareas = new javax.swing.JMenuBar();
         BtnTrMenu = new javax.swing.JMenu();
         BtnPlatos = new javax.swing.JMenuItem();
         BtnModifPlts = new javax.swing.JMenuItem();
-        BtnTrArchivo = new javax.swing.JMenu();
-        Empleados = new javax.swing.JMenuItem();
-        BtnModifEmpleados = new javax.swing.JMenuItem();
         BtnTrMesas = new javax.swing.JMenu();
         BtnListarMesas = new javax.swing.JMenuItem();
         BtnModifMesas = new javax.swing.JMenuItem();
+        BtnTrArchivo = new javax.swing.JMenu();
+        Empleados = new javax.swing.JMenuItem();
+        BtnModifEmpleados = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -368,168 +379,6 @@ public class Principal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BtnElimCmb, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(28, Short.MAX_VALUE))
-        );
-
-        Nombre1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Nombre1.setText("Nombre ");
-
-        GrpDispo.add(BtnNo);
-        BtnNo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        BtnNo.setText("No");
-        BtnNo.setEnabled(false);
-
-        Tarea.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Tarea.setText("Tarea");
-
-        BxTarea.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        BxTarea.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gerente", "Mesero", "Cocinero", "Catador", "Recepcionista", "Limpiador" }));
-        BxTarea.setEnabled(false);
-
-        Turno.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Turno.setText("Turno");
-
-        TxtId1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtId1ActionPerformed(evt);
-            }
-        });
-
-        BtnGrdr1.setText("Guardar Cambios");
-        BtnGrdr1.setEnabled(false);
-
-        TxtNombre1.setEnabled(false);
-        TxtNombre1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtNombre1ActionPerformed(evt);
-            }
-        });
-
-        TxtTurno1.setEnabled(false);
-        TxtTurno1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtTurno1ActionPerformed(evt);
-            }
-        });
-
-        BtnBuscar1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        BtnBuscar1.setText("Buscar");
-        BtnBuscar1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        BtnBuscar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnBuscar1ActionPerformed(evt);
-            }
-        });
-
-        TxtTitulo1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        TxtTitulo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        TxtTitulo1.setText("Modificar Empleados");
-
-        Presente1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Presente1.setText("Presente");
-
-        BtnModifCmb1.setText("Modificar Cambios");
-        BtnModifCmb1.setEnabled(false);
-
-        IdEmpleados1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        IdEmpleados1.setText("Id Empleado");
-
-        GrpDispo.add(BtnSi1);
-        BtnSi1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        BtnSi1.setText("Si");
-        BtnSi1.setEnabled(false);
-        BtnSi1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnSi1ActionPerformed(evt);
-            }
-        });
-
-        BtnElimCmb1.setText("Eliminar Cambios");
-        BtnElimCmb1.setEnabled(false);
-
-        javax.swing.GroupLayout ModifEmpleadosLayout = new javax.swing.GroupLayout(ModifEmpleados.getContentPane());
-        ModifEmpleados.getContentPane().setLayout(ModifEmpleadosLayout);
-        ModifEmpleadosLayout.setHorizontalGroup(
-            ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ModifEmpleadosLayout.createSequentialGroup()
-                .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModifEmpleadosLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(BtnGrdr1, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(ModifEmpleadosLayout.createSequentialGroup()
-                                .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(Presente1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Nombre1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Tarea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Turno, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(ModifEmpleadosLayout.createSequentialGroup()
-                                        .addComponent(BtnSi1)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(BtnNo))
-                                    .addComponent(BxTarea, 0, 290, Short.MAX_VALUE)
-                                    .addComponent(TxtNombre1)
-                                    .addComponent(TxtTurno1))))
-                        .addGap(10, 10, 10))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModifEmpleadosLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TxtTitulo1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModifEmpleadosLayout.createSequentialGroup()
-                                .addGap(0, 6, Short.MAX_VALUE)
-                                .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModifEmpleadosLayout.createSequentialGroup()
-                                        .addComponent(IdEmpleados1)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(TxtId1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(BtnBuscar1)
-                                        .addGap(67, 67, 67))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModifEmpleadosLayout.createSequentialGroup()
-                                        .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(BtnModifCmb1, javax.swing.GroupLayout.DEFAULT_SIZE, 357, Short.MAX_VALUE)
-                                            .addComponent(BtnElimCmb1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGap(10, 10, 10)))))))
-                .addContainerGap())
-        );
-        ModifEmpleadosLayout.setVerticalGroup(
-            ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ModifEmpleadosLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(TxtTitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(IdEmpleados1, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
-                        .addComponent(TxtId1))
-                    .addGroup(ModifEmpleadosLayout.createSequentialGroup()
-                        .addComponent(BtnBuscar1)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Nombre1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(TxtNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Tarea, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BxTarea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Turno, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtTurno1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
-                    .addComponent(Presente1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BtnSi1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BtnNo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(BtnGrdr1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BtnModifCmb1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BtnElimCmb1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
         );
 
         ListarMesas.setTitle("Lista Mesas");
@@ -889,15 +738,270 @@ public class Principal extends javax.swing.JFrame {
 
         ModifMesasLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {BtnNbrPlatMs, LblCatMs, LblOcpMs, LblidMs});
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Quienes Somos");
+        TblEmpleados.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        TblEmpleados.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Id Empleado", "Nombre", "Turno", "Presente"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jTextField1.setText("¡Bienvenidos a Kazza!  En Kazza, nos apasiona la pizza y la autenticidad. Desde nuestro primer día, nos hemos comprometido a ofrecer a nuestros clientes una experiencia gastronómica inigualable, donde cada bocado es un viaje a las tradiciones más auténticas de la cocina italiana.  Nuestro equipo de chefs, con años de experiencia y dedicación, se esfuerza por crear pizzas artesanales utilizando ingredientes frescos y de la más alta calidad. Desde la masa hecha a mano hasta las salsas caseras y los toppings cuidadosamente seleccionados, cada detalle es importante para nosotros.  Más allá de la comida, en [Nombre del Restaurante] nos enorgullece brindar un ambiente acogedor y familiar. Queremos que cada visita se sienta como estar en casa, rodeado de buena comida y buena compañía. Nuestro personal amable y atento está siempre dispuesto a hacer de su visita una experiencia memorable.  Ya sea que venga a disfrutar de una comida rápida y deliciosa, a celebrar una ocasión especial, o simplemente a relajarse con amigos y familia, en [Nombre del Restaurante] encontrará siempre el sabor, el servicio y la calidez que nos caracteriza.  Gracias por elegirnos y permitirnos ser parte de sus momentos especiales. ¡Esperamos verle pronto y compartir juntos nuestra pasión por la pizza!  Con gratitud, El equipo de [Nombre del Restaurante]");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        ListaEmpleados.setViewportView(TblEmpleados);
+
+        LblEmpDisp.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        LblEmpDisp.setText("Empleados Disponibles :");
+
+        LblEmpPres.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        LblEmpPres.setText("Empleados Presentes :");
+
+        LblCantEmp.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        LblCantEmp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LblCantEmp.setText("0");
+        LblCantEmp.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        LblCantEmpPres.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        LblCantEmpPres.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LblCantEmpPres.setText("0");
+        LblCantEmpPres.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        LblTar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        LblTar.setText("Ingrese la Tarea :");
+
+        GrpBxTar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        GrpBxTar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gerente", "Mesero", "Cocinero", "Catador", "Recepcionista", "Limpiador" }));
+
+        javax.swing.GroupLayout ListadoEmpleadosLayout = new javax.swing.GroupLayout(ListadoEmpleados.getContentPane());
+        ListadoEmpleados.getContentPane().setLayout(ListadoEmpleadosLayout);
+        ListadoEmpleadosLayout.setHorizontalGroup(
+            ListadoEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ListadoEmpleadosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(ListadoEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ListaEmpleados, javax.swing.GroupLayout.DEFAULT_SIZE, 888, Short.MAX_VALUE)
+                    .addGroup(ListadoEmpleadosLayout.createSequentialGroup()
+                        .addGroup(ListadoEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ListadoEmpleadosLayout.createSequentialGroup()
+                                .addComponent(LblTar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(GrpBxTar, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(ListadoEmpleadosLayout.createSequentialGroup()
+                                .addGroup(ListadoEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(LblEmpPres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(LblEmpDisp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(ListadoEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(LblCantEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(LblCantEmpPres, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        ListadoEmpleadosLayout.setVerticalGroup(
+            ListadoEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ListadoEmpleadosLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addGroup(ListadoEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(LblTar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(GrpBxTar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ListaEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(ListadoEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LblEmpDisp)
+                    .addComponent(LblCantEmp))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ListadoEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LblEmpPres)
+                    .addComponent(LblCantEmpPres))
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+
+        Nombre1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Nombre1.setText("Nombre ");
+
+        GrpDispo.add(BtnNo);
+        BtnNo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BtnNo.setText("No");
+        BtnNo.setEnabled(false);
+
+        Tarea.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Tarea.setText("Tarea");
+
+        BxTarea.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BxTarea.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gerente", "Mesero", "Cocinero", "Catador", "Recepcionista", "Limpiador" }));
+        BxTarea.setEnabled(false);
+
+        Turno.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Turno.setText("Turno");
+
+        TxtId1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                TxtId1ActionPerformed(evt);
+            }
+        });
+
+        BtnGrdr1.setText("Guardar Cambios");
+        BtnGrdr1.setEnabled(false);
+
+        TxtNombre1.setEnabled(false);
+        TxtNombre1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtNombre1ActionPerformed(evt);
+            }
+        });
+
+        TxtTurno1.setEnabled(false);
+        TxtTurno1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtTurno1ActionPerformed(evt);
+            }
+        });
+
+        BtnBuscar1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BtnBuscar1.setText("Buscar");
+        BtnBuscar1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BtnBuscar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnBuscar1ActionPerformed(evt);
+            }
+        });
+
+        TxtTitulo1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        TxtTitulo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TxtTitulo1.setText("Modificar Empleados");
+
+        Presente1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Presente1.setText("Presente");
+
+        BtnModifCmb1.setText("Modificar Cambios");
+        BtnModifCmb1.setEnabled(false);
+
+        IdEmpleados1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        IdEmpleados1.setText("Id Empleado");
+
+        GrpDispo.add(BtnSi1);
+        BtnSi1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BtnSi1.setText("Si");
+        BtnSi1.setEnabled(false);
+        BtnSi1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSi1ActionPerformed(evt);
+            }
+        });
+
+        BtnElimCmb1.setText("Eliminar Cambios");
+        BtnElimCmb1.setEnabled(false);
+
+        javax.swing.GroupLayout ModifEmpleadosLayout = new javax.swing.GroupLayout(ModifEmpleados.getContentPane());
+        ModifEmpleados.getContentPane().setLayout(ModifEmpleadosLayout);
+        ModifEmpleadosLayout.setHorizontalGroup(
+            ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ModifEmpleadosLayout.createSequentialGroup()
+                .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModifEmpleadosLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(BtnGrdr1, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(ModifEmpleadosLayout.createSequentialGroup()
+                                .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Presente1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Nombre1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Tarea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Turno, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(ModifEmpleadosLayout.createSequentialGroup()
+                                        .addComponent(BtnSi1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(BtnNo))
+                                    .addComponent(BxTarea, 0, 290, Short.MAX_VALUE)
+                                    .addComponent(TxtNombre1)
+                                    .addComponent(TxtTurno1))))
+                        .addGap(10, 10, 10))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModifEmpleadosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TxtTitulo1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModifEmpleadosLayout.createSequentialGroup()
+                                .addGap(0, 6, Short.MAX_VALUE)
+                                .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModifEmpleadosLayout.createSequentialGroup()
+                                        .addComponent(IdEmpleados1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(TxtId1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(BtnBuscar1)
+                                        .addGap(67, 67, 67))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModifEmpleadosLayout.createSequentialGroup()
+                                        .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(BtnModifCmb1, javax.swing.GroupLayout.DEFAULT_SIZE, 357, Short.MAX_VALUE)
+                                            .addComponent(BtnElimCmb1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGap(10, 10, 10)))))))
+                .addContainerGap())
+        );
+        ModifEmpleadosLayout.setVerticalGroup(
+            ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ModifEmpleadosLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(TxtTitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(IdEmpleados1, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
+                        .addComponent(TxtId1))
+                    .addGroup(ModifEmpleadosLayout.createSequentialGroup()
+                        .addComponent(BtnBuscar1)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Nombre1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(TxtNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Tarea, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BxTarea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Turno, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TxtTurno1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(ModifEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
+                    .addComponent(Presente1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BtnSi1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BtnNo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BtnGrdr1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BtnModifCmb1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BtnElimCmb1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
+        );
+
+        LblHIstoria.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        LblHIstoria.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LblHIstoria.setText("Quienes Somos");
+
+        TxtHistoria.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        TxtHistoria.setText("¡Bienvenidos a Kazza!  En Kazza, nos apasiona la pizza y la autenticidad. Desde nuestro primer día, nos hemos comprometido a ofrecer a nuestros clientes una experiencia gastronómica inigualable, donde cada bocado es un viaje a las tradiciones más auténticas de la cocina italiana.  Nuestro equipo de chefs, con años de experiencia y dedicación, se esfuerza por crear pizzas artesanales utilizando ingredientes frescos y de la más alta calidad. Desde la masa hecha a mano hasta las salsas caseras y los toppings cuidadosamente seleccionados, cada detalle es importante para nosotros.  Más allá de la comida, en [Nombre del Restaurante] nos enorgullece brindar un ambiente acogedor y familiar. Queremos que cada visita se sienta como estar en casa, rodeado de buena comida y buena compañía. Nuestro personal amable y atento está siempre dispuesto a hacer de su visita una experiencia memorable.  Ya sea que venga a disfrutar de una comida rápida y deliciosa, a celebrar una ocasión especial, o simplemente a relajarse con amigos y familia, en [Nombre del Restaurante] encontrará siempre el sabor, el servicio y la calidez que nos caracteriza.  Gracias por elegirnos y permitirnos ser parte de sus momentos especiales. ¡Esperamos verle pronto y compartir juntos nuestra pasión por la pizza!  Con gratitud, El equipo de [Nombre del Restaurante]");
+        TxtHistoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtHistoriaActionPerformed(evt);
             }
         });
 
@@ -908,17 +1012,17 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FrmNuestraHistoriaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(FrmNuestraHistoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE))
+                    .addComponent(TxtHistoria, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(LblHIstoria, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE))
                 .addContainerGap())
         );
         FrmNuestraHistoriaLayout.setVerticalGroup(
             FrmNuestraHistoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FrmNuestraHistoriaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4)
+                .addComponent(LblHIstoria)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
+                .addComponent(TxtHistoria, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -926,6 +1030,7 @@ public class Principal extends javax.swing.JFrame {
         setTitle("Kazza");
         setBackground(new java.awt.Color(0, 255, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setResizable(false);
 
         NbrRst.setFont(new java.awt.Font("Imprint MT Shadow", 1, 48)); // NOI18N
         NbrRst.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -963,26 +1068,6 @@ public class Principal extends javax.swing.JFrame {
 
         BarradeTareas.add(BtnTrMenu);
 
-        BtnTrArchivo.setBackground(new java.awt.Color(255, 255, 255));
-        BtnTrArchivo.setForeground(new java.awt.Color(0, 0, 0));
-        BtnTrArchivo.setText("Archivo");
-        BtnTrArchivo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-
-        Empleados.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        Empleados.setText("Empleados");
-        BtnTrArchivo.add(Empleados);
-
-        BtnModifEmpleados.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        BtnModifEmpleados.setText("Modificar Empleados");
-        BtnModifEmpleados.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnModifEmpleadosActionPerformed(evt);
-            }
-        });
-        BtnTrArchivo.add(BtnModifEmpleados);
-
-        BarradeTareas.add(BtnTrArchivo);
-
         BtnTrMesas.setText("Mesas");
         BtnTrMesas.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         BtnTrMesas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -1006,6 +1091,31 @@ public class Principal extends javax.swing.JFrame {
         BtnTrMesas.add(BtnModifMesas);
 
         BarradeTareas.add(BtnTrMesas);
+
+        BtnTrArchivo.setBackground(new java.awt.Color(255, 255, 255));
+        BtnTrArchivo.setForeground(new java.awt.Color(0, 0, 0));
+        BtnTrArchivo.setText("Archivo");
+        BtnTrArchivo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+
+        Empleados.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        Empleados.setText("Empleados");
+        Empleados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EmpleadosActionPerformed(evt);
+            }
+        });
+        BtnTrArchivo.add(Empleados);
+
+        BtnModifEmpleados.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        BtnModifEmpleados.setText("Modificar Empleados");
+        BtnModifEmpleados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnModifEmpleadosActionPerformed(evt);
+            }
+        });
+        BtnTrArchivo.add(BtnModifEmpleados);
+
+        BarradeTareas.add(BtnTrArchivo);
 
         jMenu1.setText("Quienes Somos");
         jMenu1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -1036,18 +1146,18 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(MsjRst, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(84, 84, 84))
             .addGroup(layout.createSequentialGroup()
-                .addGap(149, 149, 149)
+                .addGap(148, 148, 148)
                 .addComponent(NbrRst, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(82, 82, 82)
+                .addGap(94, 94, 94)
                 .addComponent(NbrRst, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(MsjRst, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(152, Short.MAX_VALUE))
+                .addContainerGap(141, Short.MAX_VALUE))
         );
 
         pack();
@@ -1153,9 +1263,13 @@ public class Principal extends javax.swing.JFrame {
         FrmNuestraHistoria.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void TxtHistoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtHistoriaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_TxtHistoriaActionPerformed
+
+    private void EmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmpleadosActionPerformed
+        ListadoEmpleados.setVisible(true);
+    }//GEN-LAST:event_EmpleadosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1237,22 +1351,31 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JToggleButton EliOrdenMesa1;
     private javax.swing.JMenuItem Empleados;
     private javax.swing.JFrame FrmNuestraHistoria;
+    private javax.swing.JComboBox<String> GrpBxTar;
     private javax.swing.ButtonGroup GrpDispo;
     private javax.swing.ButtonGroup GrpTermi;
     private javax.swing.JComboBox<String> GrpTxtCate;
     private javax.swing.JLabel IdEmpleados1;
     private javax.swing.JLabel IdPlatos;
     private javax.swing.JLabel LabCate;
+    private javax.swing.JLabel LblCantEmp;
+    private javax.swing.JLabel LblCantEmpPres;
     private javax.swing.JLabel LblCatMs;
+    private javax.swing.JLabel LblEmpDisp;
+    private javax.swing.JLabel LblEmpPres;
+    private javax.swing.JLabel LblHIstoria;
     private javax.swing.JLabel LblNumCuantos;
     private javax.swing.JLabel LblNumMs;
     private javax.swing.JLabel LblNumPlt;
     private javax.swing.JLabel LblOcpMs;
     private javax.swing.JLabel LblPlatCuantos;
     private javax.swing.JLabel LblPltDisp;
+    private javax.swing.JLabel LblTar;
     private javax.swing.JLabel LblTitMs;
     private javax.swing.JLabel LblidMs;
+    private javax.swing.JScrollPane ListaEmpleados;
     private javax.swing.JFrame ListaPlatos;
+    private javax.swing.JFrame ListadoEmpleados;
     private javax.swing.JFrame ListarMesas;
     private javax.swing.JFrame ModifEmpleados;
     private javax.swing.JFrame ModifMesas;
@@ -1265,10 +1388,12 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel Precio;
     private javax.swing.JLabel Presente1;
     private javax.swing.JLabel Tarea;
+    private javax.swing.JTable TblEmpleados;
     private javax.swing.JTable TblOrdn;
     private javax.swing.JTable TblPlatos;
     private javax.swing.JLabel TermiServ;
     private javax.swing.JLabel Turno;
+    private javax.swing.JTextField TxtHistoria;
     private javax.swing.JTextField TxtId;
     private javax.swing.JTextField TxtId1;
     private javax.swing.JTextField TxtNbrMesa;
@@ -1281,12 +1406,10 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField TxtTurno1;
     private javax.swing.JTextField TxtidMs;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
