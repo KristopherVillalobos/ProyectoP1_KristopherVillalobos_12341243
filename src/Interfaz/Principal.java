@@ -25,6 +25,8 @@ public class Principal extends javax.swing.JFrame {
         ListaPlatos.setLocationRelativeTo(null);
         ModifMesas.pack();
         ModifMesas.setLocationRelativeTo(null);
+        FrmNuestraHistoria.pack();
+        FrmNuestraHistoria.setLocationRelativeTo(null);
         
     }
 
@@ -114,15 +116,21 @@ public class Principal extends javax.swing.JFrame {
         BtnBuscarMs2 = new javax.swing.JButton();
         BtnBuscarMs3 = new javax.swing.JButton();
         BtnBuscarMs4 = new javax.swing.JButton();
+        FrmNuestraHistoria = new javax.swing.JFrame();
+        jLabel4 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
         NbrRst = new javax.swing.JLabel();
         MsjRst = new javax.swing.JLabel();
         BarradeTareas = new javax.swing.JMenuBar();
         BtnTrMenu = new javax.swing.JMenu();
         BtnPlatos = new javax.swing.JMenuItem();
-        BtnModif = new javax.swing.JMenuItem();
+        BtnModifPlts = new javax.swing.JMenuItem();
         BtnTrArchivo = new javax.swing.JMenu();
         Empleados = new javax.swing.JMenuItem();
-        Modificar = new javax.swing.JMenuItem();
+        BtnModifEmpleados = new javax.swing.JMenuItem();
+        BtnTrMesas = new javax.swing.JMenu();
+        BtnListarMesas = new javax.swing.JMenuItem();
+        BtnModifMesas = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -673,15 +681,18 @@ public class Principal extends javax.swing.JFrame {
 
         LblidMs.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LblidMs.setText("Id Mesero");
+        LblidMs.setEnabled(false);
 
         LblOcpMs.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LblOcpMs.setText("Ocupada");
+        LblOcpMs.setEnabled(false);
 
         GrpDispo.add(BtnMsNo);
         BtnMsNo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         BtnMsNo.setText("No");
         BtnMsNo.setEnabled(false);
 
+        BtnModifMs.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         BtnModifMs.setText("Modificar Cambios");
         BtnModifMs.setEnabled(false);
         BtnModifMs.addActionListener(new java.awt.event.ActionListener() {
@@ -692,6 +703,7 @@ public class Principal extends javax.swing.JFrame {
 
         LblCatMs.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LblCatMs.setText("Categoria");
+        LblCatMs.setEnabled(false);
 
         LblNumMs.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LblNumMs.setText("Numero de Mesa");
@@ -717,7 +729,9 @@ public class Principal extends javax.swing.JFrame {
 
         BtnNbrPlatMs.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         BtnNbrPlatMs.setText("Nombre");
+        BtnNbrPlatMs.setEnabled(false);
 
+        BtnElimMs.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         BtnElimMs.setText("Eliminar Cambios");
         BtnElimMs.setEnabled(false);
         BtnElimMs.addActionListener(new java.awt.event.ActionListener() {
@@ -732,9 +746,11 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        BtnGdrMs.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         BtnGdrMs.setText("Guardar Cambios");
         BtnGdrMs.setEnabled(false);
 
+        TxtidMs.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         TxtidMs.setEnabled(false);
         TxtidMs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -742,8 +758,12 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        BxNmbrPlatMs.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BxNmbrPlatMs.setEnabled(false);
+
         BtnBuscarMs2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         BtnBuscarMs2.setText("Buscar");
+        BtnBuscarMs2.setEnabled(false);
         BtnBuscarMs2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         BtnBuscarMs2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -753,6 +773,7 @@ public class Principal extends javax.swing.JFrame {
 
         BtnBuscarMs3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         BtnBuscarMs3.setText("Buscar");
+        BtnBuscarMs3.setEnabled(false);
         BtnBuscarMs3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         BtnBuscarMs3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -762,6 +783,7 @@ public class Principal extends javax.swing.JFrame {
 
         BtnBuscarMs4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         BtnBuscarMs4.setText("Buscar");
+        BtnBuscarMs4.setEnabled(false);
         BtnBuscarMs4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         BtnBuscarMs4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -867,6 +889,39 @@ public class Principal extends javax.swing.JFrame {
 
         ModifMesasLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {BtnNbrPlatMs, LblCatMs, LblOcpMs, LblidMs});
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Quienes Somos");
+
+        jTextField1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jTextField1.setText("¡Bienvenidos a Kazza!  En Kazza, nos apasiona la pizza y la autenticidad. Desde nuestro primer día, nos hemos comprometido a ofrecer a nuestros clientes una experiencia gastronómica inigualable, donde cada bocado es un viaje a las tradiciones más auténticas de la cocina italiana.  Nuestro equipo de chefs, con años de experiencia y dedicación, se esfuerza por crear pizzas artesanales utilizando ingredientes frescos y de la más alta calidad. Desde la masa hecha a mano hasta las salsas caseras y los toppings cuidadosamente seleccionados, cada detalle es importante para nosotros.  Más allá de la comida, en [Nombre del Restaurante] nos enorgullece brindar un ambiente acogedor y familiar. Queremos que cada visita se sienta como estar en casa, rodeado de buena comida y buena compañía. Nuestro personal amable y atento está siempre dispuesto a hacer de su visita una experiencia memorable.  Ya sea que venga a disfrutar de una comida rápida y deliciosa, a celebrar una ocasión especial, o simplemente a relajarse con amigos y familia, en [Nombre del Restaurante] encontrará siempre el sabor, el servicio y la calidez que nos caracteriza.  Gracias por elegirnos y permitirnos ser parte de sus momentos especiales. ¡Esperamos verle pronto y compartir juntos nuestra pasión por la pizza!  Con gratitud, El equipo de [Nombre del Restaurante]");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout FrmNuestraHistoriaLayout = new javax.swing.GroupLayout(FrmNuestraHistoria.getContentPane());
+        FrmNuestraHistoria.getContentPane().setLayout(FrmNuestraHistoriaLayout);
+        FrmNuestraHistoriaLayout.setHorizontalGroup(
+            FrmNuestraHistoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FrmNuestraHistoriaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(FrmNuestraHistoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        FrmNuestraHistoriaLayout.setVerticalGroup(
+            FrmNuestraHistoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FrmNuestraHistoriaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Kazza");
         setBackground(new java.awt.Color(0, 255, 255));
@@ -897,14 +952,14 @@ public class Principal extends javax.swing.JFrame {
         });
         BtnTrMenu.add(BtnPlatos);
 
-        BtnModif.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        BtnModif.setText("Modificar Platos");
-        BtnModif.addActionListener(new java.awt.event.ActionListener() {
+        BtnModifPlts.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        BtnModifPlts.setText("Modificar Platos");
+        BtnModifPlts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnModifActionPerformed(evt);
+                BtnModifPltsActionPerformed(evt);
             }
         });
-        BtnTrMenu.add(BtnModif);
+        BtnTrMenu.add(BtnModifPlts);
 
         BarradeTareas.add(BtnTrMenu);
 
@@ -917,23 +972,46 @@ public class Principal extends javax.swing.JFrame {
         Empleados.setText("Empleados");
         BtnTrArchivo.add(Empleados);
 
-        Modificar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        Modificar.setText("Modificar Empleados");
-        Modificar.addActionListener(new java.awt.event.ActionListener() {
+        BtnModifEmpleados.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        BtnModifEmpleados.setText("Modificar Empleados");
+        BtnModifEmpleados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ModificarActionPerformed(evt);
+                BtnModifEmpleadosActionPerformed(evt);
             }
         });
-        BtnTrArchivo.add(Modificar);
+        BtnTrArchivo.add(BtnModifEmpleados);
 
         BarradeTareas.add(BtnTrArchivo);
 
-        jMenu1.setText("Mesas");
-        jMenu1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jMenu1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BtnTrMesas.setText("Mesas");
+        BtnTrMesas.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BtnTrMesas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem1.setText("Listar Mesas");
+        BtnListarMesas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        BtnListarMesas.setText("Listar Mesas");
+        BtnListarMesas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnListarMesasActionPerformed(evt);
+            }
+        });
+        BtnTrMesas.add(BtnListarMesas);
+
+        BtnModifMesas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        BtnModifMesas.setText("Modificar Mesas");
+        BtnModifMesas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnModifMesasActionPerformed(evt);
+            }
+        });
+        BtnTrMesas.add(BtnModifMesas);
+
+        BarradeTareas.add(BtnTrMesas);
+
+        jMenu1.setText("Quienes Somos");
+        jMenu1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem1.setText("Nuestra Historia");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -941,13 +1019,8 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem2.setText("Modificar Mesas");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem2.setText("Contactenos");
         jMenu1.add(jMenuItem2);
 
         BarradeTareas.add(jMenu1);
@@ -980,13 +1053,13 @@ public class Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BtnModifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModifActionPerformed
+    private void BtnModifPltsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModifPltsActionPerformed
         ModifPlatos.setVisible(true);
-    }//GEN-LAST:event_BtnModifActionPerformed
+    }//GEN-LAST:event_BtnModifPltsActionPerformed
 
-    private void ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarActionPerformed
+    private void BtnModifEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModifEmpleadosActionPerformed
         ModifEmpleados.setVisible(true);
-    }//GEN-LAST:event_ModificarActionPerformed
+    }//GEN-LAST:event_BtnModifEmpleadosActionPerformed
 
     private void TxtPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtPrecioActionPerformed
         // TODO add your handling code here:
@@ -1020,9 +1093,9 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnBuscar1ActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void BtnListarMesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnListarMesasActionPerformed
         ListarMesas.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_BtnListarMesasActionPerformed
 
     private void BtnTermiSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTermiSiActionPerformed
         // TODO add your handling code here:
@@ -1032,9 +1105,9 @@ public class Principal extends javax.swing.JFrame {
         ListaPlatos.setVisible(true);
     }//GEN-LAST:event_BtnPlatosActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void BtnModifMesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModifMesasActionPerformed
         ModifMesas.setVisible(true);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_BtnModifMesasActionPerformed
 
     private void BtnBuscarMs1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarMs1ActionPerformed
         // TODO add your handling code here:
@@ -1075,6 +1148,14 @@ public class Principal extends javax.swing.JFrame {
     private void BtnElimMsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnElimMsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnElimMsActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        FrmNuestraHistoria.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1126,10 +1207,13 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton BtnGdrMs;
     private javax.swing.JButton BtnGrdr;
     private javax.swing.JButton BtnGrdr1;
-    private javax.swing.JMenuItem BtnModif;
+    private javax.swing.JMenuItem BtnListarMesas;
     private javax.swing.JButton BtnModifCmb;
     private javax.swing.JButton BtnModifCmb1;
+    private javax.swing.JMenuItem BtnModifEmpleados;
+    private javax.swing.JMenuItem BtnModifMesas;
     private javax.swing.JButton BtnModifMs;
+    private javax.swing.JMenuItem BtnModifPlts;
     private javax.swing.JRadioButton BtnMsNo;
     private javax.swing.JRadioButton BtnMsSi;
     private javax.swing.JLabel BtnNbrPlatMs;
@@ -1141,6 +1225,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JRadioButton BtnTermiSi;
     private javax.swing.JMenu BtnTrArchivo;
     private javax.swing.JMenu BtnTrMenu;
+    private javax.swing.JMenu BtnTrMesas;
     private javax.swing.JComboBox<String> BxCatMs;
     private javax.swing.JComboBox<String> BxCategoria;
     private javax.swing.JComboBox<String> BxNmbrPlatMs;
@@ -1151,6 +1236,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JToggleButton EliOrdenMesa;
     private javax.swing.JToggleButton EliOrdenMesa1;
     private javax.swing.JMenuItem Empleados;
+    private javax.swing.JFrame FrmNuestraHistoria;
     private javax.swing.ButtonGroup GrpDispo;
     private javax.swing.ButtonGroup GrpTermi;
     private javax.swing.JComboBox<String> GrpTxtCate;
@@ -1171,7 +1257,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JFrame ModifEmpleados;
     private javax.swing.JFrame ModifMesas;
     private javax.swing.JFrame ModifPlatos;
-    private javax.swing.JMenuItem Modificar;
     private javax.swing.JLabel MsjRst;
     private javax.swing.JLabel NbrMesa;
     private javax.swing.JLabel NbrRst;
@@ -1196,10 +1281,12 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField TxtTurno1;
     private javax.swing.JTextField TxtidMs;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
