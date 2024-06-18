@@ -4,15 +4,28 @@
  */
 package Interfaz;
 
+import Clases.Menu;
+import java.util.ArrayList;
+
 /**
  *
  * @author krist
  */
+
+
 public class Principal extends javax.swing.JFrame {
 
     /**
      * Creates new form Principal
      */
+    
+    private Menu menu;
+    private ArrayList<Menu> lista = new ArrayList<Menu>();
+    private Menu t;
+    private String id, nom, cate;
+    private int sueldo;
+    private boolean disp;
+    
     public Principal() {
         initComponents();
         ModifPlatos.pack();
@@ -25,10 +38,38 @@ public class Principal extends javax.swing.JFrame {
         ListaPlatos.setLocationRelativeTo(null);
         ModifMesas.pack();
         ModifMesas.setLocationRelativeTo(null);
-        FrmNuestraHistoria.pack();
-        FrmNuestraHistoria.setLocationRelativeTo(null);
         ListadoEmpleados.pack();
         ListadoEmpleados.setLocationRelativeTo(null);
+        
+        menu = new Menu();
+    }
+    
+    private void habilitardemas1(){
+        TxtId.setEnabled(false);
+        BtnBuscar.setEnabled(false);
+        TxtNombre.setEnabled(true);
+        BxCategoria.setEnabled(true);
+        TxtPrecio.setEnabled(true);
+        BtnDisponible.setEnabled(true);
+        BtnNoDisponible.setEnabled(true);
+        BtnGrdr.setEnabled(false);
+        BtnModifCmb.setEnabled(true);
+        BtnElimCmb.setEnabled(true);
+        TxtNombre.requestFocus();  
+    }
+    
+    private void habilitardemas2(){
+        TxtId.setEnabled(false);
+        BtnBuscar.setEnabled(false);
+        TxtNombre.setEnabled(true);
+        BxCategoria.setEnabled(true);
+        TxtPrecio.setEnabled(true);
+        BtnDisponible.setEnabled(true);
+        BtnNoDisponible.setEnabled(true);
+        BtnGrdr.setEnabled(true);
+        BtnModifCmb.setEnabled(false);
+        BtnElimCmb.setEnabled(false);
+        TxtNombre.requestFocus();
         
     }
 
@@ -125,13 +166,11 @@ public class Principal extends javax.swing.JFrame {
         IdEmpleados1 = new javax.swing.JLabel();
         BtnSi1 = new javax.swing.JRadioButton();
         BtnElimCmb1 = new javax.swing.JButton();
-        FrmNuestraHistoria = new javax.swing.JFrame();
-        LblHIstoria = new javax.swing.JLabel();
-        TxtHistoria = new javax.swing.JTextField();
         GrpDispo = new javax.swing.ButtonGroup();
         GrpTermi = new javax.swing.ButtonGroup();
         NbrRst = new javax.swing.JLabel();
         MsjRst = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         BarradeTareas = new javax.swing.JMenuBar();
         BtnTrMenu = new javax.swing.JMenu();
         BtnPlatos = new javax.swing.JMenuItem();
@@ -142,9 +181,6 @@ public class Principal extends javax.swing.JFrame {
         BtnTrArchivo = new javax.swing.JMenu();
         Empleados = new javax.swing.JMenuItem();
         BtnModifEmpleados = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
 
         LabCate.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LabCate.setText("Ingrese la Categoria :");
@@ -271,6 +307,11 @@ public class Principal extends javax.swing.JFrame {
         BtnBuscar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         BtnBuscar.setText("Buscar");
         BtnBuscar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BtnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnBuscarActionPerformed(evt);
+            }
+        });
 
         Disponible.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Disponible.setText("Disponible");
@@ -722,11 +763,12 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(BxNmbrPlatMs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BtnBuscarMs4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LblOcpMs)
+                .addGroup(ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
                         .addComponent(BtnMsSi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BtnMsNo)))
+                        .addComponent(BtnMsNo))
+                    .addGroup(ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(LblOcpMs)))
                 .addGap(21, 21, 21)
                 .addComponent(BtnGdrMs, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -993,39 +1035,6 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(28, 28, 28))
         );
 
-        LblHIstoria.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        LblHIstoria.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LblHIstoria.setText("Quienes Somos");
-
-        TxtHistoria.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        TxtHistoria.setText("¡Bienvenidos a Kazza!  En Kazza, nos apasiona la pizza y la autenticidad. Desde nuestro primer día, nos hemos comprometido a ofrecer a nuestros clientes una experiencia gastronómica inigualable, donde cada bocado es un viaje a las tradiciones más auténticas de la cocina italiana.  Nuestro equipo de chefs, con años de experiencia y dedicación, se esfuerza por crear pizzas artesanales utilizando ingredientes frescos y de la más alta calidad. Desde la masa hecha a mano hasta las salsas caseras y los toppings cuidadosamente seleccionados, cada detalle es importante para nosotros.  Más allá de la comida, en [Nombre del Restaurante] nos enorgullece brindar un ambiente acogedor y familiar. Queremos que cada visita se sienta como estar en casa, rodeado de buena comida y buena compañía. Nuestro personal amable y atento está siempre dispuesto a hacer de su visita una experiencia memorable.  Ya sea que venga a disfrutar de una comida rápida y deliciosa, a celebrar una ocasión especial, o simplemente a relajarse con amigos y familia, en [Nombre del Restaurante] encontrará siempre el sabor, el servicio y la calidez que nos caracteriza.  Gracias por elegirnos y permitirnos ser parte de sus momentos especiales. ¡Esperamos verle pronto y compartir juntos nuestra pasión por la pizza!  Con gratitud, El equipo de [Nombre del Restaurante]");
-        TxtHistoria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtHistoriaActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout FrmNuestraHistoriaLayout = new javax.swing.GroupLayout(FrmNuestraHistoria.getContentPane());
-        FrmNuestraHistoria.getContentPane().setLayout(FrmNuestraHistoriaLayout);
-        FrmNuestraHistoriaLayout.setHorizontalGroup(
-            FrmNuestraHistoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FrmNuestraHistoriaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(FrmNuestraHistoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(TxtHistoria, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(LblHIstoria, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        FrmNuestraHistoriaLayout.setVerticalGroup(
-            FrmNuestraHistoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(FrmNuestraHistoriaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(LblHIstoria)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TxtHistoria, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Kazza");
         setBackground(new java.awt.Color(0, 255, 255));
@@ -1039,6 +1048,20 @@ public class Principal extends javax.swing.JFrame {
         MsjRst.setFont(new java.awt.Font("Imprint MT Shadow", 1, 18)); // NOI18N
         MsjRst.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         MsjRst.setText("L'autentico sapore italiano");
+
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel1.setForeground(new java.awt.Color(102, 102, 102));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 90, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
 
         BarradeTareas.setBackground(new java.awt.Color(51, 51, 51));
         BarradeTareas.setForeground(new java.awt.Color(0, 0, 0));
@@ -1117,24 +1140,6 @@ public class Principal extends javax.swing.JFrame {
 
         BarradeTareas.add(BtnTrArchivo);
 
-        jMenu1.setText("Quienes Somos");
-        jMenu1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem1.setText("Nuestra Historia");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem1);
-
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem2.setText("Contactenos");
-        jMenu1.add(jMenuItem2);
-
-        BarradeTareas.add(jMenu1);
-
         setJMenuBar(BarradeTareas);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1142,13 +1147,16 @@ public class Principal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(90, Short.MAX_VALUE)
-                .addComponent(MsjRst, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(84, 84, 84))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(148, 148, 148)
-                .addComponent(NbrRst, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(NbrRst, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(150, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(MsjRst, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(93, 93, 93))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1158,6 +1166,7 @@ public class Principal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(MsjRst, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(141, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -1259,17 +1268,41 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnElimMsActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        FrmNuestraHistoria.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void TxtHistoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtHistoriaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtHistoriaActionPerformed
-
     private void EmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmpleadosActionPerformed
         ListadoEmpleados.setVisible(true);
     }//GEN-LAST:event_EmpleadosActionPerformed
+
+    private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarActionPerformed
+        if(TxtId.getText ().trim().isEmpty()){
+            javax.swing.JOptionPane.showMessageDialog(null,"EL Campo esta Vacio","ERROR",2);
+            TxtId.setText("");
+            TxtId.requestFocus();
+        }else {
+            id = TxtId.getText();
+            disp = false;
+            for (int i = 0; i < lista.size(); i++) {
+                t = lista.get(i);
+                if (id.equalsIgnoreCase(t.getIdplato())) {
+                    disp = true;
+                    habilitardemas1();
+                    TxtNombre.setText(t.getNombre());
+                    BxCategoria.setSelectedItem(t.getCategoria());
+                    TxtPrecio.setText(Integer.toString(t.getPrecio()));
+                    if(disp == true){
+                        BtnDisponible.setSelected(true);
+                    }else{
+                        BtnNoDisponible.setSelected(true);
+                    }
+                    javax.swing.JOptionPane.showMessageDialog(null,"Id Encontrado","Accion Finalizada",1);
+                    break;
+                }
+            }
+            if(disp == false){
+                javax.swing.JOptionPane.showMessageDialog(null,"Puede Ingresar un Nuevo Plato o Intentarlo de Nuevo","Id No Encontrado",3);
+                habilitardemas2();
+            }
+        }
+    }//GEN-LAST:event_BtnBuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1301,7 +1334,10 @@ public class Principal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Principal().setVisible(true);
+                Principal principal = new Principal();
+                principal.pack();
+                principal.setVisible(true);
+                principal.setLocationRelativeTo(null);
             }
         });
     }
@@ -1350,7 +1386,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JToggleButton EliOrdenMesa;
     private javax.swing.JToggleButton EliOrdenMesa1;
     private javax.swing.JMenuItem Empleados;
-    private javax.swing.JFrame FrmNuestraHistoria;
     private javax.swing.JComboBox<String> GrpBxTar;
     private javax.swing.ButtonGroup GrpDispo;
     private javax.swing.ButtonGroup GrpTermi;
@@ -1363,7 +1398,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel LblCatMs;
     private javax.swing.JLabel LblEmpDisp;
     private javax.swing.JLabel LblEmpPres;
-    private javax.swing.JLabel LblHIstoria;
     private javax.swing.JLabel LblNumCuantos;
     private javax.swing.JLabel LblNumMs;
     private javax.swing.JLabel LblNumPlt;
@@ -1393,7 +1427,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTable TblPlatos;
     private javax.swing.JLabel TermiServ;
     private javax.swing.JLabel Turno;
-    private javax.swing.JTextField TxtHistoria;
     private javax.swing.JTextField TxtId;
     private javax.swing.JTextField TxtId1;
     private javax.swing.JTextField TxtNbrMesa;
@@ -1406,9 +1439,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField TxtTurno1;
     private javax.swing.JTextField TxtidMs;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables

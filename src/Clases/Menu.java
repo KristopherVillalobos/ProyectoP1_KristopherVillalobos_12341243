@@ -12,14 +12,14 @@ public class Menu {
 
     private String nombre;
     private String categoria;
-    private double precio;
-    private int idplato;
+    private int precio;
+    private String idplato;
     private boolean disponible;
 
     public Menu() {
     }
 
-    public Menu(String nombre, String categoria, double precio, int idplato, boolean disponible) {
+    public Menu(String nombre, String categoria, int precio, String idplato, boolean disponible) {
         this.nombre = nombre;
         this.categoria = categoria;
         this.precio = precio;
@@ -43,19 +43,19 @@ public class Menu {
         this.categoria = categoria;
     }
 
-    public double getPrecio() {
+    public int getPrecio() {
         return precio;
     }
 
-    public void setPrecio(double precio) {
+    public void setPrecio(int precio) {
         this.precio = precio;
     }
 
-    public int getIdplato() {
+    public String getIdplato() {
         return idplato;
     }
 
-    public void setIdplato(int idplato) {
+    public void setIdplato(String idplato) {
         this.idplato = idplato;
     }
 
@@ -66,7 +66,6 @@ public class Menu {
     public void setDisponible(boolean disponible) {
         this.disponible = disponible;
     }
+
     
-    
- 
 }
