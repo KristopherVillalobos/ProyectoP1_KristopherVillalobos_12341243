@@ -6,6 +6,7 @@ package Interfaz;
 
 import Clases.Menu;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -19,11 +20,10 @@ public class Principal extends javax.swing.JFrame {
      * Creates new form Principal
      */
     
-    private Menu menu;
     private ArrayList<Menu> lista = new ArrayList<Menu>();
     private Menu t;
     private String id, nom, cate;
-    private int sueldo;
+    private int precio;
     private boolean disp;
     
     public Principal() {
@@ -41,7 +41,6 @@ public class Principal extends javax.swing.JFrame {
         ListadoEmpleados.pack();
         ListadoEmpleados.setLocationRelativeTo(null);
         
-        menu = new Menu();
     }
     
     private void habilitardemas1(){
@@ -69,8 +68,26 @@ public class Principal extends javax.swing.JFrame {
         BtnGrdr.setEnabled(true);
         BtnModifCmb.setEnabled(false);
         BtnElimCmb.setEnabled(false);
-        TxtNombre.requestFocus();
-        
+        TxtNombre.requestFocus(); 
+    }
+    
+    private void vaciarcampos(){
+        TxtId.setEnabled(true);
+        BtnBuscar.setEnabled(true);
+        TxtId.setText("");
+        TxtNombre.setText("");
+        TxtPrecio.setText("");
+        BxCategoria.setSelectedIndex(0);
+        BtnDisponible.setSelected(true);
+        TxtNombre.setEnabled(false);
+        BxCategoria.setEnabled(false);
+        TxtPrecio.setEnabled(false);
+        BtnDisponible.setEnabled(false);
+        BtnNoDisponible.setEnabled(false);
+        BtnGrdr.setEnabled(false);
+        BtnModifCmb.setEnabled(false);
+        BtnElimCmb.setEnabled(false);
+        TxtId.requestFocus(); 
     }
 
     /**
@@ -337,6 +354,11 @@ public class Principal extends javax.swing.JFrame {
 
         BtnGrdr.setText("Guardar Cambios");
         BtnGrdr.setEnabled(false);
+        BtnGrdr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnGrdrActionPerformed(evt);
+            }
+        });
 
         TxtTitulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         TxtTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1273,7 +1295,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_EmpleadosActionPerformed
 
     private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarActionPerformed
-        if(TxtId.getText ().trim().isEmpty()){
+        if(TxtId.getText().trim().isEmpty()){
             javax.swing.JOptionPane.showMessageDialog(null,"EL Campo esta Vacio","ERROR",2);
             TxtId.setText("");
             TxtId.requestFocus();
@@ -1304,6 +1326,49 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_BtnBuscarActionPerformed
 
+    private void BtnGrdrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGrdrActionPerformed
+        if(TxtNombre.getText().trim().isEmpty() || TxtPrecio.getText().trim().isEmpty()){
+            javax.swing.JOptionPane.showMessageDialog(null,"Datos Insuficientes","ERROR",2);
+        }else{
+            int id = idrandom();
+            TxtId.setText(Integer.toString(id));
+            nom = TxtNombre.getText();
+            precio = Integer.parseInt(TxtPrecio.getText());
+            cate = BxCategoria.getSelectedItem().toString();
+            switch(cate){
+                case "Bebida":
+                    break;
+                case "Entrada":
+                    break;
+                case "Plato Fuerte":
+                    break;
+                case "Postre":
+                    break;
+            }//termina switch
+            
+            if(BtnDisponible.isSelected()){
+                disp = true;
+            }else{
+                disp = false;
+            }
+        }
+        t = new Menu();
+        t.setIdplato(id);
+        t.setIdplato(id);
+        t.setNombre(nom);
+        t.setCategoria(cate);
+        t.setPrecio(precio);
+        t.setDisponible(disp);
+        lista.add(t);
+        javax.swing.JOptionPane.showMessageDialog(null,"El Plato fue Ingresado","Accion Finalizada",1);
+        vaciarcampos();
+    }//GEN-LAST:event_BtnGrdrActionPerformed
+
+    private int idrandom() {
+        Random random = new Random();
+        return random.nextInt(50) + 1;
+    }
+    
     /**
      * @param args the command line arguments
      */

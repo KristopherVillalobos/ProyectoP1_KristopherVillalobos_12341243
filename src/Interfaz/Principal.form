@@ -369,6 +369,9 @@
             <Property name="text" type="java.lang.String" value="Guardar Cambios"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnGrdrActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="TxtTitulo">
           <Properties>
