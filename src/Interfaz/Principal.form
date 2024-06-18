@@ -3,6 +3,9 @@
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Container class="javax.swing.JFrame" name="ListaPlatos">
+      <Properties>
+        <Property name="title" type="java.lang.String" value="Lista de Platos"/>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -387,18 +390,24 @@
             <Property name="text" type="java.lang.String" value="Modificar Cambios"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnModifCmbActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="BtnElimCmb">
           <Properties>
             <Property name="text" type="java.lang.String" value="Eliminar Cambios"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnElimCmbActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JFrame" name="ListarMesas">
       <Properties>
-        <Property name="title" type="java.lang.String" value="Lista Mesas"/>
+        <Property name="title" type="java.lang.String" value="Lista de Mesas"/>
         <Property name="resizable" type="boolean" value="false"/>
       </Properties>
 
@@ -415,19 +424,9 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="CantPed" pref="182" max="32767" attributes="0"/>
-                                      <Component id="TermiServ" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="CantPed" min="-2" pref="182" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="BtnTermiSi" min="-2" pref="69" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="BtnTermiNo" min="-2" pref="69" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="jLabel1" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="jLabel1" min="-2" pref="156" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
@@ -466,15 +465,7 @@
                       <Component id="CantPed" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="BtnTermiSi" alignment="3" pref="0" max="32767" attributes="0"/>
-                          <Component id="BtnTermiNo" alignment="3" pref="0" max="32767" attributes="0"/>
-                      </Group>
-                      <Component id="TermiServ" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="106" max="32767" attributes="0"/>
+                  <EmptySpace pref="89" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -548,39 +539,6 @@
             <Property name="text" type="java.lang.String" value="Cantidad Total de Pedidos :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="TermiServ">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="12" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Termino el Servicio :"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JRadioButton" name="BtnTermiSi">
-          <Properties>
-            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-              <ComponentRef name="GrpTermi"/>
-            </Property>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="12" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Si"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnTermiSiActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JRadioButton" name="BtnTermiNo">
-          <Properties>
-            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-              <ComponentRef name="GrpTermi"/>
-            </Property>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="12" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="No"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -601,6 +559,7 @@
     </Container>
     <Container class="javax.swing.JFrame" name="ModifMesas">
       <Properties>
+        <Property name="title" type="java.lang.String" value="Modificar Mesas"/>
         <Property name="resizable" type="boolean" value="false"/>
       </Properties>
 
@@ -609,42 +568,6 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="LblTitMs" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="BtnNbrPlatMs" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
-                                      <Component id="LblCatMs" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
-                                      <Component id="LblidMs" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="BxCatMs" alignment="0" pref="238" max="32767" attributes="0"/>
-                                      <Component id="BxNmbrPlatMs" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="TxtidMs" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="LblNumMs" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="TxtNumMs" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="BtnBuscarMs1" min="-2" max="-2" attributes="0"/>
-                              <Component id="BtnBuscarMs2" min="-2" max="-2" attributes="0"/>
-                              <Component id="BtnBuscarMs3" min="-2" max="-2" attributes="0"/>
-                              <Component id="BtnBuscarMs4" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                      </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -655,6 +578,37 @@
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="LblTitMs" max="32767" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="BtnNbrPlatMs" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
+                                              <Component id="LblCatMs" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
+                                              <Component id="LblidMs" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="BxCatMs" alignment="0" pref="322" max="32767" attributes="0"/>
+                                              <Component id="TxtNotPlat" alignment="1" max="32767" attributes="0"/>
+                                              <Component id="TxtidMs" alignment="0" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <Component id="LblNumMs" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="TxtNumMs" max="32767" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="BtnBuscarMs1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -687,24 +641,24 @@
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="TxtidMs" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="LblidMs" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="BtnBuscarMs2" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="TxtidMs" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="LblidMs" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="BxCatMs" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="LblCatMs" linkSize="4" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="BtnBuscarMs3" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="BtnNbrPlatMs" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="BxNmbrPlatMs" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="BtnBuscarMs4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                          <Component id="BtnNbrPlatMs" linkSize="4" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="TxtNotPlat" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -712,17 +666,15 @@
                           <Component id="BtnMsSi" alignment="3" max="32767" attributes="0"/>
                           <Component id="BtnMsNo" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="LblOcpMs" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="LblOcpMs" linkSize="4" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                   <Component id="BtnGdrMs" min="-2" pref="37" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="BtnModifMs" min="-2" pref="37" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="BtnElimMs" min="-2" pref="37" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -755,7 +707,6 @@
               <Font name="Tahoma" size="12" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Id Mesero"/>
-            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="LblOcpMs">
@@ -764,7 +715,6 @@
               <Font name="Tahoma" size="12" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Ocupada"/>
-            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JRadioButton" name="BtnMsNo">
@@ -796,8 +746,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Categoria"/>
-            <Property name="enabled" type="boolean" value="false"/>
+            <Property name="text" type="java.lang.String" value="Personas"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="LblNumMs">
@@ -814,11 +763,14 @@
               <Font name="Tahoma" size="12" style="1"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Bebida"/>
-                <StringItem index="1" value="Entrada"/>
-                <StringItem index="2" value="Plato Fuerte"/>
-                <StringItem index="3" value="Postre"/>
+              <StringArray count="7">
+                <StringItem index="0" value="Vacia"/>
+                <StringItem index="1" value="1 Persona"/>
+                <StringItem index="2" value="2 Personas"/>
+                <StringItem index="3" value="3 Personas"/>
+                <StringItem index="4" value="4 Personas"/>
+                <StringItem index="5" value="5 Personas"/>
+                <StringItem index="6" value="6 Personas"/>
               </StringArray>
             </Property>
             <Property name="enabled" type="boolean" value="false"/>
@@ -850,8 +802,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Nombre"/>
-            <Property name="enabled" type="boolean" value="false"/>
+            <Property name="text" type="java.lang.String" value="Notas"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="BtnElimMs">
@@ -879,6 +830,9 @@
             <Property name="text" type="java.lang.String" value="Guardar Cambios"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnGdrMsActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="TxtidMs">
           <Properties>
@@ -891,62 +845,23 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtidMsActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JComboBox" name="BxNmbrPlatMs">
+        <Component class="javax.swing.JTextField" name="TxtNotPlat">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="1"/>
             </Property>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="0"/>
-            </Property>
             <Property name="enabled" type="boolean" value="false"/>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JButton" name="BtnBuscarMs2">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="12" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Buscar"/>
-            <Property name="enabled" type="boolean" value="false"/>
-            <Property name="horizontalTextPosition" type="int" value="0"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnBuscarMs2ActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="BtnBuscarMs3">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="12" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Buscar"/>
-            <Property name="enabled" type="boolean" value="false"/>
-            <Property name="horizontalTextPosition" type="int" value="0"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnBuscarMs3ActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="BtnBuscarMs4">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="12" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Buscar"/>
-            <Property name="enabled" type="boolean" value="false"/>
-            <Property name="horizontalTextPosition" type="int" value="0"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnBuscarMs4ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtNotPlatActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JFrame" name="ListadoEmpleados">
+      <Properties>
+        <Property name="title" type="java.lang.String" value="Lista de Empleados"/>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -1098,6 +1013,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JFrame" name="ModifEmpleados">
+      <Properties>
+        <Property name="title" type="java.lang.String" value="Modificar Lista de Empleados"/>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">

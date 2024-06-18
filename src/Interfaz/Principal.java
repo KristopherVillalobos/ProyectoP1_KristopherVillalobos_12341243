@@ -5,6 +5,7 @@
 package Interfaz;
 
 import Clases.Menu;
+import Clases.Mesas;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -21,10 +22,12 @@ public class Principal extends javax.swing.JFrame {
      */
     
     private ArrayList<Menu> lista = new ArrayList<Menu>();
+    private ArrayList<Mesas> listams = new ArrayList<Mesas>();
     private Menu t;
-    private String id, nom, cate;
-    private int precio;
-    private boolean disp;
+    private Mesas m;
+    private String id, nom, cate, numms, notas, pers, idmes;
+    private int precio, pos;
+    private boolean disp, ocp;
     
     public Principal() {
         initComponents();
@@ -71,6 +74,34 @@ public class Principal extends javax.swing.JFrame {
         TxtNombre.requestFocus(); 
     }
     
+    private void habilitardemas3(){
+        TxtNumMs.setEnabled(false);
+        BtnBuscarMs1.setEnabled(false);
+        TxtidMs.setEnabled(true);
+        BxCatMs.setEnabled(true);
+        TxtNotPlat.setEnabled(true);
+        BtnMsSi.setEnabled(true);
+        BtnMsNo.setEnabled(true);
+        BtnGdrMs.setEnabled(false);
+        BtnModifMs.setEnabled(true);
+        BtnElimMs.setEnabled(true);
+        TxtidMs.requestFocus();  
+    }
+    
+    private void habilitardemas4(){
+        TxtNumMs.setEnabled(false);
+        BtnBuscarMs1.setEnabled(false);
+        TxtidMs.setEnabled(true);
+        BxCatMs.setEnabled(true);
+        TxtNotPlat.setEnabled(true);
+        BtnMsSi.setEnabled(true);
+        BtnMsNo.setEnabled(true);
+        BtnGdrMs.setEnabled(true);
+        BtnModifMs.setEnabled(false);
+        BtnElimMs.setEnabled(false);
+        TxtidMs.requestFocus();  
+    }
+    
     private void vaciarcampos(){
         TxtId.setEnabled(true);
         BtnBuscar.setEnabled(true);
@@ -88,6 +119,25 @@ public class Principal extends javax.swing.JFrame {
         BtnModifCmb.setEnabled(false);
         BtnElimCmb.setEnabled(false);
         TxtId.requestFocus(); 
+    }
+    
+    private void vaciarcampos2(){
+        TxtNumMs.setEnabled(true);
+        BtnBuscarMs1.setEnabled(true);
+        TxtNumMs.setText("");
+        TxtidMs.setText("");
+        TxtNotPlat.setText("");
+        BxCatMs.setSelectedIndex(0);
+        BtnMsSi.setSelected(true);
+        TxtidMs.setEnabled(false);
+        TxtNotPlat.setEnabled(false);
+        BxCatMs.setEnabled(false);
+        BtnMsSi.setEnabled(false);
+        BtnMsNo.setEnabled(false);
+        BtnGdrMs.setEnabled(false);
+        BtnModifMs.setEnabled(false);
+        BtnElimMs.setEnabled(false);
+        TxtNumMs.requestFocus(); 
     }
 
     /**
@@ -132,9 +182,6 @@ public class Principal extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         TblOrdn = new javax.swing.JTable();
         CantPed = new javax.swing.JLabel();
-        TermiServ = new javax.swing.JLabel();
-        BtnTermiSi = new javax.swing.JRadioButton();
-        BtnTermiNo = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
         EliOrdenMesa1 = new javax.swing.JToggleButton();
         ModifMesas = new javax.swing.JFrame();
@@ -153,10 +200,7 @@ public class Principal extends javax.swing.JFrame {
         TxtNumMs = new javax.swing.JTextField();
         BtnGdrMs = new javax.swing.JButton();
         TxtidMs = new javax.swing.JTextField();
-        BxNmbrPlatMs = new javax.swing.JComboBox<>();
-        BtnBuscarMs2 = new javax.swing.JButton();
-        BtnBuscarMs3 = new javax.swing.JButton();
-        BtnBuscarMs4 = new javax.swing.JButton();
+        TxtNotPlat = new javax.swing.JTextField();
         ListadoEmpleados = new javax.swing.JFrame();
         ListaEmpleados = new javax.swing.JScrollPane();
         TblEmpleados = new javax.swing.JTable();
@@ -198,6 +242,8 @@ public class Principal extends javax.swing.JFrame {
         BtnTrArchivo = new javax.swing.JMenu();
         Empleados = new javax.swing.JMenuItem();
         BtnModifEmpleados = new javax.swing.JMenuItem();
+
+        ListaPlatos.setTitle("Lista de Platos");
 
         LabCate.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LabCate.setText("Ingrese la Categoria :");
@@ -366,9 +412,19 @@ public class Principal extends javax.swing.JFrame {
 
         BtnModifCmb.setText("Modificar Cambios");
         BtnModifCmb.setEnabled(false);
+        BtnModifCmb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnModifCmbActionPerformed(evt);
+            }
+        });
 
         BtnElimCmb.setText("Eliminar Cambios");
         BtnElimCmb.setEnabled(false);
+        BtnElimCmb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnElimCmbActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ModifPlatosLayout = new javax.swing.GroupLayout(ModifPlatos.getContentPane());
         ModifPlatos.getContentPane().setLayout(ModifPlatosLayout);
@@ -444,7 +500,7 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
-        ListarMesas.setTitle("Lista Mesas");
+        ListarMesas.setTitle("Lista de Mesas");
         ListarMesas.setResizable(false);
 
         NbrMesa.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -489,22 +545,6 @@ public class Principal extends javax.swing.JFrame {
         CantPed.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         CantPed.setText("Cantidad Total de Pedidos :");
 
-        TermiServ.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        TermiServ.setText("Termino el Servicio :");
-
-        GrpTermi.add(BtnTermiSi);
-        BtnTermiSi.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        BtnTermiSi.setText("Si");
-        BtnTermiSi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnTermiSiActionPerformed(evt);
-            }
-        });
-
-        GrpTermi.add(BtnTermiNo);
-        BtnTermiNo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        BtnTermiNo.setText("No");
-
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("0");
 
@@ -524,16 +564,9 @@ public class Principal extends javax.swing.JFrame {
                         .addGroup(ListarMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(ListarMesasLayout.createSequentialGroup()
                                 .addGap(12, 12, 12)
-                                .addGroup(ListarMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(CantPed, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
-                                    .addComponent(TermiServ, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(CantPed, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(ListarMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(ListarMesasLayout.createSequentialGroup()
-                                        .addComponent(BtnTermiSi, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(BtnTermiNo, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(ListarMesasLayout.createSequentialGroup()
                                 .addGap(14, 14, 14)
                                 .addComponent(NbrMesa)
@@ -565,17 +598,12 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(ListarMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CantPed)
                     .addComponent(jLabel1))
-                .addGap(12, 12, 12)
-                .addGroup(ListarMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(ListarMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(BtnTermiSi, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(BtnTermiNo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                    .addComponent(TermiServ, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
 
         ListarMesasLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {EliOrdenMesa, EliOrdenMesa1, NbrMesa, TxtNbrMesa});
 
+        ModifMesas.setTitle("Modificar Mesas");
         ModifMesas.setResizable(false);
 
         BtnBuscarMs1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -593,11 +621,9 @@ public class Principal extends javax.swing.JFrame {
 
         LblidMs.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LblidMs.setText("Id Mesero");
-        LblidMs.setEnabled(false);
 
         LblOcpMs.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LblOcpMs.setText("Ocupada");
-        LblOcpMs.setEnabled(false);
 
         GrpDispo.add(BtnMsNo);
         BtnMsNo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -614,14 +640,13 @@ public class Principal extends javax.swing.JFrame {
         });
 
         LblCatMs.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        LblCatMs.setText("Categoria");
-        LblCatMs.setEnabled(false);
+        LblCatMs.setText("Personas");
 
         LblNumMs.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LblNumMs.setText("Numero de Mesa");
 
         BxCatMs.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        BxCatMs.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bebida", "Entrada", "Plato Fuerte", "Postre" }));
+        BxCatMs.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vacia", "1 Persona", "2 Personas", "3 Personas", "4 Personas", "5 Personas", "6 Personas" }));
         BxCatMs.setEnabled(false);
         BxCatMs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -640,8 +665,7 @@ public class Principal extends javax.swing.JFrame {
         });
 
         BtnNbrPlatMs.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        BtnNbrPlatMs.setText("Nombre");
-        BtnNbrPlatMs.setEnabled(false);
+        BtnNbrPlatMs.setText("Notas");
 
         BtnElimMs.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         BtnElimMs.setText("Eliminar Cambios");
@@ -661,6 +685,11 @@ public class Principal extends javax.swing.JFrame {
         BtnGdrMs.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         BtnGdrMs.setText("Guardar Cambios");
         BtnGdrMs.setEnabled(false);
+        BtnGdrMs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnGdrMsActionPerformed(evt);
+            }
+        });
 
         TxtidMs.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         TxtidMs.setEnabled(false);
@@ -670,36 +699,11 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        BxNmbrPlatMs.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        BxNmbrPlatMs.setEnabled(false);
-
-        BtnBuscarMs2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        BtnBuscarMs2.setText("Buscar");
-        BtnBuscarMs2.setEnabled(false);
-        BtnBuscarMs2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        BtnBuscarMs2.addActionListener(new java.awt.event.ActionListener() {
+        TxtNotPlat.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        TxtNotPlat.setEnabled(false);
+        TxtNotPlat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnBuscarMs2ActionPerformed(evt);
-            }
-        });
-
-        BtnBuscarMs3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        BtnBuscarMs3.setText("Buscar");
-        BtnBuscarMs3.setEnabled(false);
-        BtnBuscarMs3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        BtnBuscarMs3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnBuscarMs3ActionPerformed(evt);
-            }
-        });
-
-        BtnBuscarMs4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        BtnBuscarMs4.setText("Buscar");
-        BtnBuscarMs4.setEnabled(false);
-        BtnBuscarMs4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        BtnBuscarMs4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnBuscarMs4ActionPerformed(evt);
+                TxtNotPlatActionPerformed(evt);
             }
         });
 
@@ -709,34 +713,6 @@ public class Principal extends javax.swing.JFrame {
             ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ModifMesasLayout.createSequentialGroup()
                 .addGroup(ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ModifMesasLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(LblTitMs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(ModifMesasLayout.createSequentialGroup()
-                        .addGroup(ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(ModifMesasLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(BtnNbrPlatMs, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(LblCatMs, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(LblidMs, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(BxCatMs, 0, 238, Short.MAX_VALUE)
-                                    .addComponent(BxNmbrPlatMs, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(TxtidMs)))
-                            .addGroup(ModifMesasLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(LblNumMs)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TxtNumMs)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BtnBuscarMs1)
-                            .addComponent(BtnBuscarMs2)
-                            .addComponent(BtnBuscarMs3)
-                            .addComponent(BtnBuscarMs4))
-                        .addGap(10, 10, 10))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModifMesasLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -744,7 +720,30 @@ public class Principal extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(BtnModifMs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(BtnElimMs, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(20, 20, 20)))
+                        .addGap(20, 20, 20))
+                    .addGroup(ModifMesasLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(LblTitMs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModifMesasLayout.createSequentialGroup()
+                                .addGroup(ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(ModifMesasLayout.createSequentialGroup()
+                                        .addGroup(ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(BtnNbrPlatMs, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(LblCatMs, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(LblidMs, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(BxCatMs, 0, 322, Short.MAX_VALUE)
+                                            .addComponent(TxtNotPlat, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(TxtidMs)))
+                                    .addGroup(ModifMesasLayout.createSequentialGroup()
+                                        .addComponent(LblNumMs)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(TxtNumMs)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(BtnBuscarMs1)))
+                                .addGap(4, 4, 4)))))
                 .addContainerGap())
             .addGroup(ModifMesasLayout.createSequentialGroup()
                 .addContainerGap()
@@ -769,38 +768,38 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(BtnBuscarMs1)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(TxtidMs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(LblidMs))
-                    .addComponent(BtnBuscarMs2))
+                .addGroup(ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TxtidMs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LblidMs))
                 .addGap(3, 3, 3)
                 .addGroup(ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BxCatMs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LblCatMs, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnBuscarMs3))
-                .addGap(7, 7, 7)
-                .addGroup(ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BtnNbrPlatMs)
-                    .addComponent(BxNmbrPlatMs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnBuscarMs4))
+                    .addComponent(LblCatMs, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ModifMesasLayout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(BtnNbrPlatMs))
+                    .addGroup(ModifMesasLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TxtNotPlat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
                         .addComponent(BtnMsSi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(BtnMsNo))
-                    .addGroup(ModifMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(LblOcpMs)))
-                .addGap(21, 21, 21)
+                    .addComponent(LblOcpMs))
+                .addGap(31, 31, 31)
                 .addComponent(BtnGdrMs, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BtnModifMs, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BtnElimMs, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55))
+                .addGap(45, 45, 45))
         );
 
         ModifMesasLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {BtnNbrPlatMs, LblCatMs, LblOcpMs, LblidMs});
+
+        ListadoEmpleados.setTitle("Lista de Empleados");
 
         TblEmpleados.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         TblEmpleados.setModel(new javax.swing.table.DefaultTableModel(
@@ -894,6 +893,8 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(LblCantEmpPres))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
+
+        ModifEmpleados.setTitle("Modificar Lista de Empleados");
 
         Nombre1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Nombre1.setText("Nombre ");
@@ -1238,10 +1239,6 @@ public class Principal extends javax.swing.JFrame {
         ListarMesas.setVisible(true);
     }//GEN-LAST:event_BtnListarMesasActionPerformed
 
-    private void BtnTermiSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTermiSiActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnTermiSiActionPerformed
-
     private void BtnPlatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPlatosActionPerformed
         ListaPlatos.setVisible(true);
     }//GEN-LAST:event_BtnPlatosActionPerformed
@@ -1251,7 +1248,36 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnModifMesasActionPerformed
 
     private void BtnBuscarMs1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarMs1ActionPerformed
-        // TODO add your handling code here:
+        //Boton Buscar Mesas
+        if(TxtNumMs.getText().trim().isEmpty()){
+            javax.swing.JOptionPane.showMessageDialog(null,"EL Campo esta Vacio","ERROR",2);
+            TxtNumMs.setText("");
+            TxtNumMs.requestFocus();
+        }else {
+            numms = TxtNumMs.getText();
+            ocp = false;
+            for (int i = 0; i < listams.size(); i++) {
+                m = listams.get(i);
+                if (numms.equalsIgnoreCase(m.getNumesa())) {
+                    ocp = true;
+                    habilitardemas3();
+                    TxtidMs.setText(m.getIdmes());
+                    BxCatMs.setSelectedItem(m.getPers());
+                    TxtNotPlat.setText(m.getNots());
+                    if(ocp == true){
+                        BtnMsSi.setSelected(true);
+                    }else{
+                        BtnMsNo.setSelected(true);
+                    }
+                    javax.swing.JOptionPane.showMessageDialog(null,"Mesa Encontrada","Accion Finalizada",1);
+                    break;
+                }
+            }
+            if(ocp == false){
+                javax.swing.JOptionPane.showMessageDialog(null,"Puede Ingresar una Nueva Mesa o Intentarlo de Nuevo","Numero de Mesa No Encontrado",3);
+                habilitardemas4();
+            }
+        }
     }//GEN-LAST:event_BtnBuscarMs1ActionPerformed
 
     private void BtnMsSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMsSiActionPerformed
@@ -1266,24 +1292,56 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtidMsActionPerformed
 
-    private void BtnBuscarMs2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarMs2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnBuscarMs2ActionPerformed
-
-    private void BtnBuscarMs3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarMs3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnBuscarMs3ActionPerformed
-
-    private void BtnBuscarMs4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarMs4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnBuscarMs4ActionPerformed
-
     private void BxCatMsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BxCatMsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BxCatMsActionPerformed
 
     private void BtnModifMsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModifMsActionPerformed
-        // TODO add your handling code here:
+        // Boton Modificar Cambios Mesas
+        if(TxtNumMs.getText().trim().isEmpty() || TxtidMs.getText().trim().isEmpty()){
+            javax.swing.JOptionPane.showMessageDialog(null,"Datos Insuficientes","ERROR",2);
+        }else{
+            numms = TxtNumMs.getText();
+            notas = TxtNotPlat.getText();
+            idmes = TxtidMs.getText();
+            pers = BxCatMs.getSelectedItem().toString();
+            switch(pers){
+                case "Vacia":
+                    break;
+                case "1 Persona":
+                    break;
+                case "2 Personas":
+                    break;
+                case "3 Personas":
+                    break;
+                case "4 Personas":
+                    break;
+                case "5 Personas":
+                    break;
+                case "6 Personas":
+                    break;
+            }//termina switch
+            
+            if(BtnMsSi.isSelected()){
+                ocp = true;
+            }else{
+                ocp = false;
+            }
+        }
+        m = new Mesas();
+        m.setNumesa(numms);
+        m.setNots(notas);
+        m.setIdmes(idmes);
+        m.setPers(pers);
+        m.setOcup(ocp);
+        listams.add(m);
+        
+        javax.swing.JOptionPane.showMessageDialog(null,"La Mesa fue Modificada","Accion Finalizada",1);
+        
+        int pos = ObtenerPosicion(numms);
+        listams.set(pos, m);
+        javax.swing.JOptionPane.showMessageDialog(null, "La Mesa fue Modificado", "Accion Finalizada", 1);
+        vaciarcampos2();
     }//GEN-LAST:event_BtnModifMsActionPerformed
 
     private void BtnElimMsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnElimMsActionPerformed
@@ -1295,6 +1353,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_EmpleadosActionPerformed
 
     private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarActionPerformed
+        // Boton Buscar Platos
         if(TxtId.getText().trim().isEmpty()){
             javax.swing.JOptionPane.showMessageDialog(null,"EL Campo esta Vacio","ERROR",2);
             TxtId.setText("");
@@ -1327,6 +1386,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnBuscarActionPerformed
 
     private void BtnGrdrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGrdrActionPerformed
+        // Boton Guardar Platos
         if(TxtNombre.getText().trim().isEmpty() || TxtPrecio.getText().trim().isEmpty()){
             javax.swing.JOptionPane.showMessageDialog(null,"Datos Insuficientes","ERROR",2);
         }else{
@@ -1364,9 +1424,118 @@ public class Principal extends javax.swing.JFrame {
         vaciarcampos();
     }//GEN-LAST:event_BtnGrdrActionPerformed
 
+    private void BtnModifCmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModifCmbActionPerformed
+        // Boton Modificar Cambios Platos
+        if (TxtNombre.getText().trim().isEmpty() || TxtPrecio.getText().trim().isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(null, "Datos Insuficientes", "ERROR", 2);
+        } else {
+            int id = idrandom();
+            TxtId.setText(Integer.toString(id));
+            nom = TxtNombre.getText();
+            precio = Integer.parseInt(TxtPrecio.getText());
+            cate = BxCategoria.getSelectedItem().toString();
+            switch (cate) {
+                case "Bebida":
+                    break;
+                case "Entrada":
+                    break;
+                case "Plato Fuerte":
+                    break;
+                case "Postre":
+                    break;
+            }//termina switch
+
+            if (BtnDisponible.isSelected()) {
+                disp = true;
+            } else {
+                disp = false;
+            }
+        }
+        t = new Menu();
+        t.setIdplato(id);
+        t.setIdplato(id);
+        t.setNombre(nom);
+        t.setCategoria(cate);
+        t.setPrecio(precio);
+        t.setDisponible(disp);
+        
+        int pos = ObtenerPosicion(id);
+        lista.set(pos, t);
+        javax.swing.JOptionPane.showMessageDialog(null, "El Plato fue Modificado", "Accion Finalizada", 1);
+        vaciarcampos();
+
+    }//GEN-LAST:event_BtnModifCmbActionPerformed
+
+    private void BtnElimCmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnElimCmbActionPerformed
+        // Boton Eliminar Cambios Platos
+        id = TxtId.getText();
+        int pos = ObtenerPosicion(id);
+        lista.remove(pos);
+        javax.swing.JOptionPane.showMessageDialog(null, "El Plato fue Eliminado", "Accion Finalizada", 1);
+        vaciarcampos();
+    }//GEN-LAST:event_BtnElimCmbActionPerformed
+
+    private void BtnGdrMsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGdrMsActionPerformed
+        //Boton Guardar Mesas
+        if(TxtNumMs.getText().trim().isEmpty() || TxtidMs.getText().trim().isEmpty()){
+            javax.swing.JOptionPane.showMessageDialog(null,"Datos Insuficientes","ERROR",2);
+        }else{
+            numms = TxtNumMs.getText();
+            notas = TxtNotPlat.getText();
+            int idmes = idrandom();
+            TxtidMs.setText(Integer.toString(idmes));
+            pers = BxCatMs.getSelectedItem().toString();
+            switch(pers){
+                case "Vacia":
+                    break;
+                case "1 Persona":
+                    break;
+                case "2 Personas":
+                    break;
+                case "3 Personas":
+                    break;
+                case "4 Personas":
+                    break;
+                case "5 Personas":
+                    break;
+                case "6 Personas":
+                    break;
+            }//termina switch
+            
+            if(BtnMsSi.isSelected()){
+                ocp = true;
+            }else{
+                ocp = false;
+            }
+        }
+        m = new Mesas();
+        m.setNumesa(numms);
+        m.setNots(notas);
+        m.setIdmes(idmes);
+        m.setPers(pers);
+        m.setOcup(ocp);
+        listams.add(m);
+        javax.swing.JOptionPane.showMessageDialog(null,"La Mesa fue Guardada","Accion Finalizada",1);
+        vaciarcampos2();
+    }//GEN-LAST:event_BtnGdrMsActionPerformed
+
+    private void TxtNotPlatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtNotPlatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtNotPlatActionPerformed
+
     private int idrandom() {
         Random random = new Random();
         return random.nextInt(50) + 1;
+    }
+    
+    private int ObtenerPosicion(String Id) {
+        for (int i = 0; i < lista.size(); i++) {
+            Menu t = lista.get(i);
+            if (Id.equalsIgnoreCase(t.getIdplato())) {
+                return i;
+            }
+        }
+        return -1;
     }
     
     /**
@@ -1412,9 +1581,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton BtnBuscar;
     private javax.swing.JButton BtnBuscar1;
     private javax.swing.JButton BtnBuscarMs1;
-    private javax.swing.JButton BtnBuscarMs2;
-    private javax.swing.JButton BtnBuscarMs3;
-    private javax.swing.JButton BtnBuscarMs4;
     private javax.swing.JRadioButton BtnDisponible;
     private javax.swing.JButton BtnElimCmb;
     private javax.swing.JButton BtnElimCmb1;
@@ -1436,14 +1602,11 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JRadioButton BtnNoDisponible;
     private javax.swing.JMenuItem BtnPlatos;
     private javax.swing.JRadioButton BtnSi1;
-    private javax.swing.JRadioButton BtnTermiNo;
-    private javax.swing.JRadioButton BtnTermiSi;
     private javax.swing.JMenu BtnTrArchivo;
     private javax.swing.JMenu BtnTrMenu;
     private javax.swing.JMenu BtnTrMesas;
     private javax.swing.JComboBox<String> BxCatMs;
     private javax.swing.JComboBox<String> BxCategoria;
-    private javax.swing.JComboBox<String> BxNmbrPlatMs;
     private javax.swing.JComboBox<String> BxTarea;
     private javax.swing.JLabel CantPed;
     private javax.swing.JLabel Categoria;
@@ -1490,13 +1653,13 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTable TblEmpleados;
     private javax.swing.JTable TblOrdn;
     private javax.swing.JTable TblPlatos;
-    private javax.swing.JLabel TermiServ;
     private javax.swing.JLabel Turno;
     private javax.swing.JTextField TxtId;
     private javax.swing.JTextField TxtId1;
     private javax.swing.JTextField TxtNbrMesa;
     private javax.swing.JTextField TxtNombre;
     private javax.swing.JTextField TxtNombre1;
+    private javax.swing.JTextField TxtNotPlat;
     private javax.swing.JTextField TxtNumMs;
     private javax.swing.JTextField TxtPrecio;
     private javax.swing.JLabel TxtTitulo;
