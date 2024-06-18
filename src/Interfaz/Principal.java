@@ -27,10 +27,12 @@ public class Principal extends javax.swing.JFrame {
     private Menu t;
     private Mesas m;
     private String id, nom, cate, numms, notas, pers, idmes;
-    private int precio, pos;
+    private int precio, pos, filas, columnas;
     private boolean disp, ocp;
     private DefaultTableModel tablita;
     private DefaultTableModel tablita2;
+    private int[] mesasIngresadas = new int[100];
+    private int numMesasIngresadas = 0;
     
     public Principal() {
         initComponents();
@@ -151,6 +153,10 @@ public class Principal extends javax.swing.JFrame {
         ListaPlatos = new javax.swing.JFrame();
         tb_listarpl = new javax.swing.JScrollPane();
         TblPlatos = new javax.swing.JTable();
+        LblNumPlt = new javax.swing.JLabel();
+        LblPltDisp = new javax.swing.JLabel();
+        LblNumCuantos = new javax.swing.JLabel();
+        LblPlatCuantos = new javax.swing.JLabel();
         ModifPlatos = new javax.swing.JFrame();
         IdPlatos = new javax.swing.JLabel();
         Nombre = new javax.swing.JLabel();
@@ -171,6 +177,8 @@ public class Principal extends javax.swing.JFrame {
         ListarMesas = new javax.swing.JFrame();
         jScrollPane1 = new javax.swing.JScrollPane();
         TblOrdn = new javax.swing.JTable();
+        CantMes = new javax.swing.JLabel();
+        TxtCantMs = new javax.swing.JLabel();
         ModifMesas = new javax.swing.JFrame();
         BtnBuscarMs1 = new javax.swing.JButton();
         LblTitMs = new javax.swing.JLabel();
@@ -229,21 +237,55 @@ public class Principal extends javax.swing.JFrame {
         });
         tb_listarpl.setViewportView(TblPlatos);
 
+        LblNumPlt.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        LblNumPlt.setText("Numero de Platos :");
+
+        LblPltDisp.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        LblPltDisp.setText("Platillos Disponibles :");
+
+        LblNumCuantos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        LblNumCuantos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LblNumCuantos.setText("0");
+        LblNumCuantos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        LblPlatCuantos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        LblPlatCuantos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LblPlatCuantos.setText("0");
+        LblPlatCuantos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout ListaPlatosLayout = new javax.swing.GroupLayout(ListaPlatos.getContentPane());
         ListaPlatos.getContentPane().setLayout(ListaPlatosLayout);
         ListaPlatosLayout.setHorizontalGroup(
             ListaPlatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ListaPlatosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tb_listarpl, javax.swing.GroupLayout.DEFAULT_SIZE, 888, Short.MAX_VALUE)
+                .addGroup(ListaPlatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tb_listarpl, javax.swing.GroupLayout.DEFAULT_SIZE, 888, Short.MAX_VALUE)
+                    .addGroup(ListaPlatosLayout.createSequentialGroup()
+                        .addGroup(ListaPlatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(LblPltDisp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(LblNumPlt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(ListaPlatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(LblNumCuantos, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LblPlatCuantos, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 670, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         ListaPlatosLayout.setVerticalGroup(
             ListaPlatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ListaPlatosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tb_listarpl, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(tb_listarpl, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(ListaPlatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LblNumPlt)
+                    .addComponent(LblNumCuantos))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ListaPlatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LblPltDisp)
+                    .addComponent(LblPlatCuantos))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         ModifPlatos.setTitle("Modificar Platos");
@@ -441,21 +483,37 @@ public class Principal extends javax.swing.JFrame {
         TblOrdn.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(TblOrdn);
 
+        CantMes.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        CantMes.setText("Cantidad de Mesas:");
+
+        TxtCantMs.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        TxtCantMs.setText("0");
+
         javax.swing.GroupLayout ListarMesasLayout = new javax.swing.GroupLayout(ListarMesas.getContentPane());
         ListarMesas.getContentPane().setLayout(ListarMesasLayout);
         ListarMesasLayout.setHorizontalGroup(
             ListarMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ListarMesasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 888, Short.MAX_VALUE)
+                .addGroup(ListarMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 888, Short.MAX_VALUE)
+                    .addGroup(ListarMesasLayout.createSequentialGroup()
+                        .addComponent(CantMes)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(TxtCantMs, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         ListarMesasLayout.setVerticalGroup(
             ListarMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ListarMesasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(ListarMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CantMes)
+                    .addComponent(TxtCantMs))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         ModifMesas.setTitle("Modificar Mesas");
@@ -1066,9 +1124,16 @@ public class Principal extends javax.swing.JFrame {
         listams.add(m);
         javax.swing.JOptionPane.showMessageDialog(null,"La Mesa fue Guardada","Accion Finalizada",1);
         vaciarcampos2();
+        numMesasIngresadas++;
         listarmesas();
     }//GEN-LAST:event_BtnGdrMsActionPerformed
 
+    public void agregarMesa() {
+        if (numMesasIngresadas < 100) {
+            mesasIngresadas[numMesasIngresadas] = 1;
+        }
+    }
+    
     private void TxtNotPlatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtNotPlatActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtNotPlatActionPerformed
@@ -1122,6 +1187,7 @@ public class Principal extends javax.swing.JFrame {
                 m.getNots()
             });
         }
+        TxtCantMs.setText(Integer.toString(numMesasIngresadas));
     }
     
     /**
@@ -1185,14 +1251,19 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu BtnTrMesas;
     private javax.swing.JComboBox<String> BxCatMs;
     private javax.swing.JComboBox<String> BxCategoria;
+    private javax.swing.JLabel CantMes;
     private javax.swing.JLabel Categoria;
     private javax.swing.JLabel Disponible;
     private javax.swing.ButtonGroup GrpDispo;
     private javax.swing.ButtonGroup GrpTermi;
     private javax.swing.JLabel IdPlatos;
     private javax.swing.JLabel LblCatMs;
+    private javax.swing.JLabel LblNumCuantos;
     private javax.swing.JLabel LblNumMs;
+    private javax.swing.JLabel LblNumPlt;
     private javax.swing.JLabel LblOcpMs;
+    private javax.swing.JLabel LblPlatCuantos;
+    private javax.swing.JLabel LblPltDisp;
     private javax.swing.JLabel LblTitMs;
     private javax.swing.JLabel LblidMs;
     private javax.swing.JFrame ListaPlatos;
@@ -1205,6 +1276,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel Precio;
     private javax.swing.JTable TblOrdn;
     private javax.swing.JTable TblPlatos;
+    private javax.swing.JLabel TxtCantMs;
     private javax.swing.JTextField TxtId;
     private javax.swing.JTextField TxtNombre;
     private javax.swing.JTextField TxtNotPlat;
